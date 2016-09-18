@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="deo, Hexo, NexT" />
+  <meta name="keywords" content="python,celery," />
 
 
 
@@ -84,15 +84,28 @@
 
 
 
-<meta name="description" content="专业救火，专职刷脸，价格公道，值得拥有">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deo">
-<meta property="og:url" content="http://deo.im/tags/javascript/index.html">
+<meta name="description" content="versionspython 3.5
+celery 3.1.23
+taskIt will be nice that we could get email notification whenever a celery task fails. 
+There’s some built in email setting in Celery 3 through configuration.
+Followin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Problems sending email through celery">
+<meta property="og:url" content="http://deo.im/2016/09/18/Problems-sending-email-through-celery/index.html">
 <meta property="og:site_name" content="Deo">
-<meta property="og:description" content="专业救火，专职刷脸，价格公道，值得拥有">
+<meta property="og:description" content="versionspython 3.5
+celery 3.1.23
+taskIt will be nice that we could get email notification whenever a celery task fails. 
+There’s some built in email setting in Celery 3 through configuration.
+Followin">
+<meta property="og:updated_time" content="2016-09-18T00:28:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deo">
-<meta name="twitter:description" content="专业救火，专职刷脸，价格公道，值得拥有">
+<meta name="twitter:title" content="Problems sending email through celery">
+<meta name="twitter:description" content="versionspython 3.5
+celery 3.1.23
+taskIt will be nice that we could get email notification whenever a celery task fails. 
+There’s some built in email setting in Celery 3 through configuration.
+Followin">
 
 
 
@@ -113,9 +126,9 @@
 
 
 
-  <link rel="canonical" href="http://deo.im/tags/javascript/"/>
+  <link rel="canonical" href="http://deo.im/2016/09/18/Problems-sending-email-through-celery/"/>
 
-  <title> Tag: javascript | Deo </title>
+  <title> Problems sending email through celery | Deo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -146,7 +159,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,46 +237,189 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        javascript
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Problems sending email through celery
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-18T08:12:00+08:00" content="2016-09-18">
+              2016-09-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/18/Problems-sending-email-through-celery/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/18/Problems-sending-email-through-celery/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/18/Problems-sending-email-through-celery/" class="leancloud_visitors" data-flag-title="Problems sending email through celery">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h3 id="versions"><a href="#versions" class="headerlink" title="versions"></a>versions</h3><p>python 3.5</p>
+<p>celery 3.1.23</p>
+<h3 id="task"><a href="#task" class="headerlink" title="task"></a>task</h3><p>It will be nice that we could get email notification whenever a celery task fails. </p>
+<p>There’s some built in email setting in Celery 3 through <a href="http://docs.celeryproject.org/en/latest/configuration.html" target="_blank" rel="external">configuration</a>.</p>
+<p>Following are sample configuration from the document:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Enables error emails.</span></div><div class="line">CELERY_SEND_TASK_ERROR_EMAILS = <span class="keyword">True</span></div><div class="line"></div><div class="line"><span class="comment"># Name and email addresses of recipients</span></div><div class="line">ADMINS = (</div><div class="line">    (<span class="string">'George Costanza'</span>, <span class="string">'george@vandelay.com'</span>),</div><div class="line">    (<span class="string">'Cosmo Kramer'</span>, <span class="string">'kosmo@vandelay.com'</span>),</div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment"># Email address used as sender (From field).</span></div><div class="line">SERVER_EMAIL = <span class="string">'no-reply@vandelay.com'</span></div><div class="line"></div><div class="line"><span class="comment"># Mailserver configuration</span></div><div class="line">EMAIL_HOST = <span class="string">'mail.vandelay.com'</span></div><div class="line">EMAIL_PORT = <span class="number">25</span></div><div class="line"><span class="comment"># EMAIL_HOST_USER = 'servers'</span></div><div class="line"><span class="comment"># EMAIL_HOST_PASSWORD = 's3cr3t'</span></div></pre></td></tr></table></figure></p>
+<h3 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h3><p>However there’s a problem for small tasks.</p>
+<p>The email sent by celery is sync which adds up the finish time for the task. Supposed it sends the email in 1s and your task fails in 10ms, this makes your task total run time up to 1.01s. It’s find if you use it in long running task or trivil background job. However it’s completely unacceptable if you are using it for time critical jobs.</p>
+<p>Also this functionality is removed in up coming 4.0</p>
+<p><a href="http://docs.celeryproject.org/en/master/whatsnew-4.0.html#features-removed-for-simplicity" target="_blank" rel="external">http://docs.celeryproject.org/en/master/whatsnew-4.0.html#features-removed-for-simplicity</a></p>
+<h3 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h3><p>Obviously we need a way to handle this. using the <strong><em>link_error</em></strong> parameter in <strong><em>async_task</em></strong> may be a solution for single task. I’ll update the post when I have time to write some general async error email notification solution</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/09/16/some-open-source-projects/" itemprop="url">
-              
-                <span itemprop="name">some open source projects</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>今天的午餐全赖有你支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat_reward_image.jpeg" alt="Zhanzhao Deo Liang WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay_reward_image.jpeg" alt="Zhanzhao Deo Liang Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-16T16:55:00+08:00"
-              content="2016-09-16" >
-          09-16
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+            <a href="/tags/celery/" rel="tag">#celery</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/16/some-open-source-projects/" rel="next" title="some open source projects">
+                <i class="fa fa-chevron-left"></i> some open source projects
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/18/Problems-sending-email-through-celery/"
+     data-title="Problems sending email through celery"
+     data-content=""
+     data-url="http://deo.im/2016/09/18/Problems-sending-email-through-celery/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -271,6 +427,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/18/Problems-sending-email-through-celery/"
+           data-title="Problems sending email through celery" data-url="http://deo.im/2016/09/18/Problems-sending-email-through-celery/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -290,8 +454,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpeg"
@@ -334,6 +507,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#versions"><span class="nav-number">1.</span> <span class="nav-text">versions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#task"><span class="nav-number">2.</span> <span class="nav-text">task</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem"><span class="nav-number">3.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-number">4.</span> <span class="nav-text">solution</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -430,6 +614,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
