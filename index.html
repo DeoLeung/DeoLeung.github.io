@@ -248,6 +248,123 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/20/Pickle-can-t-dump-2GB-file/" itemprop="url">
+                  Pickle can't dump 2GB+ file on MAC OS X
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-20T07:09:00+08:00" content="2016-09-20">
+              2016-09-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/20/Pickle-can-t-dump-2GB-file/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/20/Pickle-can-t-dump-2GB-file/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/20/Pickle-can-t-dump-2GB-file/" class="leancloud_visitors" data-flag-title="Pickle can't dump 2GB+ file on MAC OS X">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>As a data scientist/engineer you may very likely work with big dataset.</p>
+<p>If you’re trying to pickle big files over 2GB, you may encounter this on MAC OS X:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">OSError                                   Traceback (most recent call last)</div><div class="line">&lt;ipython-input-5-5b2910a2f7f4&gt; <span class="keyword">in</span> &lt;module&gt;()</div><div class="line">----&gt; 1 df.to_pickle(<span class="string">'test.pkl'</span>)</div><div class="line"></div><div class="line">/Users/.../lib/python3.5/site-packages/pandas/core/generic.py <span class="keyword">in</span> to_pickle(self, path)</div><div class="line">   1175         <span class="string">""</span><span class="string">"</span></div><div class="line">   1176         from pandas.io.pickle import to_pickle</div><div class="line">-&gt; 1177         return to_pickle(self, path)</div><div class="line">   1178</div><div class="line">   1179     def to_clipboard(self, excel=None, sep=None, **kwargs):</div><div class="line"></div><div class="line">/Users/.../lib/python3.5/site-packages/pandas/io/pickle.py in to_pickle(obj, path)</div><div class="line">     18     "<span class="string">""</span></div><div class="line">     19     with open(path, <span class="string">'wb'</span>) as f:</div><div class="line">---&gt; 20         pkl.dump(obj, f, protocol=pkl.HIGHEST_PROTOCOL)</div><div class="line">     21</div><div class="line">     22</div><div class="line"></div><div class="line">OSError: [Errno 22] Invalid argument</div></pre></td></tr></table></figure></p>
+<p>This has been a long reported issue over a year, as you can find in <a href="http://bugs.python.org/issue24658" target="_blank" rel="external">Issue 24658</a>, not exactly pickle related though.</p>
+<p>Fortunately it’s fixed now but may need some time before release, one can either:</p>
+<ol>
+<li>patch the fix</li>
+<li>just split the target file to 2GB-</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/19/Install-gdal-2-1-on-Mac-OS-X/" itemprop="url">
                   Install gdal 2.1 on Mac OS X
                 </a>
@@ -621,7 +738,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

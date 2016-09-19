@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="deo, Hexo, NexT" />
+  <meta name="keywords" content="python,mac os x," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="专业救火，专职刷脸，价格公道，值得拥有">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deo">
-<meta property="og:url" content="http://deo.im/archives/2016/index.html">
+<meta name="description" content="As a data scientist/engineer you may very likely work with big dataset.
+If you’re trying to pickle big files over 2GB, you may encounter this on MAC OS X:12345678910111213141516171819OSError">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pickle can't dump 2GB+ file on MAC OS X">
+<meta property="og:url" content="http://deo.im/2016/09/20/Pickle-can-t-dump-2GB-file/index.html">
 <meta property="og:site_name" content="Deo">
-<meta property="og:description" content="专业救火，专职刷脸，价格公道，值得拥有">
+<meta property="og:description" content="As a data scientist/engineer you may very likely work with big dataset.
+If you’re trying to pickle big files over 2GB, you may encounter this on MAC OS X:12345678910111213141516171819OSError">
+<meta property="og:updated_time" content="2016-09-19T23:22:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deo">
-<meta name="twitter:description" content="专业救火，专职刷脸，价格公道，值得拥有">
+<meta name="twitter:title" content="Pickle can't dump 2GB+ file on MAC OS X">
+<meta name="twitter:description" content="As a data scientist/engineer you may very likely work with big dataset.
+If you’re trying to pickle big files over 2GB, you may encounter this on MAC OS X:12345678910111213141516171819OSError">
 
 
 
@@ -113,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://deo.im/archives/2016/"/>
+  <link rel="canonical" href="http://deo.im/2016/09/20/Pickle-can-t-dump-2GB-file/"/>
 
-  <title> Archive | Deo </title>
+  <title> Pickle can't dump 2GB+ file on MAC OS X | Deo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -146,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,177 +228,192 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 4 posts in total. Keep on posting.
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Pickle can't dump 2GB+ file on MAC OS X
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-20T07:09:00+08:00" content="2016-09-20">
+              2016-09-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/20/Pickle-can-t-dump-2GB-file/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/20/Pickle-can-t-dump-2GB-file/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/20/Pickle-can-t-dump-2GB-file/" class="leancloud_visitors" data-flag-title="Pickle can't dump 2GB+ file on MAC OS X">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>As a data scientist/engineer you may very likely work with big dataset.</p>
+<p>If you’re trying to pickle big files over 2GB, you may encounter this on MAC OS X:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">OSError                                   Traceback (most recent call last)</div><div class="line">&lt;ipython-input-5-5b2910a2f7f4&gt; <span class="keyword">in</span> &lt;module&gt;()</div><div class="line">----&gt; 1 df.to_pickle(<span class="string">'test.pkl'</span>)</div><div class="line"></div><div class="line">/Users/.../lib/python3.5/site-packages/pandas/core/generic.py <span class="keyword">in</span> to_pickle(self, path)</div><div class="line">   1175         <span class="string">""</span><span class="string">"</span></div><div class="line">   1176         from pandas.io.pickle import to_pickle</div><div class="line">-&gt; 1177         return to_pickle(self, path)</div><div class="line">   1178</div><div class="line">   1179     def to_clipboard(self, excel=None, sep=None, **kwargs):</div><div class="line"></div><div class="line">/Users/.../lib/python3.5/site-packages/pandas/io/pickle.py in to_pickle(obj, path)</div><div class="line">     18     "<span class="string">""</span></div><div class="line">     19     with open(path, <span class="string">'wb'</span>) as f:</div><div class="line">---&gt; 20         pkl.dump(obj, f, protocol=pkl.HIGHEST_PROTOCOL)</div><div class="line">     21</div><div class="line">     22</div><div class="line"></div><div class="line">OSError: [Errno 22] Invalid argument</div></pre></td></tr></table></figure></p>
+<p>This has been a long reported issue over a year, as you can find in <a href="http://bugs.python.org/issue24658" target="_blank" rel="external">Issue 24658</a>, not exactly pickle related though.</p>
+<p>Fortunately it’s fixed now but may need some time before release, one can either:</p>
+<ol>
+<li>patch the fix</li>
+<li>just split the target file to 2GB-</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat_subscription.jpg" alt="Zhanzhao Deo Liang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的个人订阅号： deoXdeo</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>今天的午餐全赖有你支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat_reward_image.jpeg" alt="Zhanzhao Deo Liang WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay_reward_image.jpeg" alt="Zhanzhao Deo Liang Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+            <a href="/tags/mac-os-x/" rel="tag">#mac os x</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/20/Pickle-can-t-dump-2GB-file/" itemprop="url">
-              
-                <span itemprop="name">Pickle can't dump 2GB+ file on MAC OS X</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/19/Install-gdal-2-1-on-Mac-OS-X/" rel="next" title="Install gdal 2.1 on Mac OS X">
+                <i class="fa fa-chevron-left"></i> Install gdal 2.1 on Mac OS X
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-20T07:09:00+08:00"
-              content="2016-09-20" >
-          09-20
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/09/20/Pickle-can-t-dump-2GB-file/"
+     data-title="Pickle can't dump 2GB+ file on MAC OS X"
+     data-content=""
+     data-url="http://deo.im/2016/09/20/Pickle-can-t-dump-2GB-file/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/19/Install-gdal-2-1-on-Mac-OS-X/" itemprop="url">
-              
-                <span itemprop="name">Install gdal 2.1 on Mac OS X</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-19T07:50:00+08:00"
-              content="2016-09-19" >
-          09-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/18/Problems-sending-email-through-celery/" itemprop="url">
-              
-                <span itemprop="name">Problems sending email through celery</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-18T08:12:00+08:00"
-              content="2016-09-18" >
-          09-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/16/some-open-source-projects/" itemprop="url">
-              
-                <span itemprop="name">some open source projects</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-16T16:55:00+08:00"
-              content="2016-09-16" >
-          09-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
+    </div>
+  </div>
 
 
           </div>
@@ -402,6 +421,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/20/Pickle-can-t-dump-2GB-file/"
+           data-title="Pickle can't dump 2GB+ file on MAC OS X" data-url="http://deo.im/2016/09/20/Pickle-can-t-dump-2GB-file/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -421,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpeg"
@@ -485,6 +521,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -581,11 +628,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
