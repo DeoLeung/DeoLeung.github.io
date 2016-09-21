@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="deo, Hexo, NexT" />
+  <meta name="keywords" content="python,psycopg2,pandas," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="专业救火，专职刷脸，价格公道，值得拥有">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deo">
-<meta property="og:url" content="http://deo.im/archives/index.html">
+<meta name="description" content="As a data scientist you may probably use Pandas a lot to play with your data.
+While it’s quite easy to read data from PostgreSQL combined with Psycopg2:12345import psycopg2import pandas as pdwith psyc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Adapting Pandas data type using Psycopg2">
+<meta property="og:url" content="http://deo.im/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/index.html">
 <meta property="og:site_name" content="Deo">
-<meta property="og:description" content="专业救火，专职刷脸，价格公道，值得拥有">
+<meta property="og:description" content="As a data scientist you may probably use Pandas a lot to play with your data.
+While it’s quite easy to read data from PostgreSQL combined with Psycopg2:12345import psycopg2import pandas as pdwith psyc">
+<meta property="og:updated_time" content="2016-09-21T00:49:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deo">
-<meta name="twitter:description" content="专业救火，专职刷脸，价格公道，值得拥有">
+<meta name="twitter:title" content="Adapting Pandas data type using Psycopg2">
+<meta name="twitter:description" content="As a data scientist you may probably use Pandas a lot to play with your data.
+While it’s quite easy to read data from PostgreSQL combined with Psycopg2:12345import psycopg2import pandas as pdwith psyc">
 
 
 
@@ -113,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://deo.im/archives/"/>
+  <link rel="canonical" href="http://deo.im/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/"/>
 
-  <title> Archive | Deo </title>
+  <title> Adapting Pandas data type using Psycopg2 | Deo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -146,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,214 +228,190 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 5 posts in total. Keep on posting.
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Adapting Pandas data type using Psycopg2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-21T08:33:00+08:00" content="2016-09-21">
+              2016-09-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/" class="leancloud_visitors" data-flag-title="Adapting Pandas data type using Psycopg2">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>As a data scientist you may probably use Pandas a lot to play with your data.</p>
+<p>While it’s quite easy to read data from PostgreSQL combined with Psycopg2:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> psycopg2</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line"><span class="keyword">with</span> psycopg2.connect(<span class="string">'some dsn'</span>) <span class="keyword">as</span> conn:</div><div class="line">  data = pd.read_sql_query(<span class="string">'your sql'</span>, conn)</div></pre></td></tr></table></figure></p>
+<p>but writing the data back to PostgreSQL we need to create some adapters. As the <a href="http://pandas.pydata.org/pandas-docs/stable/basics.html" target="_blank" rel="external">Pandas API doc(scroll down to bottom)</a> shows, you may do:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">mport psycopg2</div><div class="line"><span class="keyword">from</span> psycopg2 <span class="keyword">import</span> extensions</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_float</span><span class="params">(x)</span>:</span></div><div class="line">  <span class="string">"""psycopg2 interpolation to float"""</span></div><div class="line">  <span class="keyword">return</span> extensions.AsIs(<span class="string">'%f'</span> % float(x))</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_int</span><span class="params">(x)</span>:</span></div><div class="line">  <span class="string">"""psycopg2 interpolation to int"""</span></div><div class="line">  <span class="keyword">return</span> extensions.AsIs(<span class="string">'%d'</span> % int(x))</div><div class="line"></div><div class="line">extensions.register_adapter(np.floating, to_float)</div><div class="line">extensions.register_adapter(np.integer, to_int)</div></pre></td></tr></table></figure></p>
+<p>Notice we adapt the base type as Pandas internal storing of float/int may be a little different from what you see in ‘dtype’</p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat_subscription.jpg" alt="Zhanzhao Deo Liang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的个人订阅号： deoXdeo</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>今天的午餐全赖有你支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat_reward_image.jpeg" alt="Zhanzhao Deo Liang WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay_reward_image.jpeg" alt="Zhanzhao Deo Liang Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+            <a href="/tags/psycopg2/" rel="tag">#psycopg2</a>
+          
+            <a href="/tags/pandas/" rel="tag">#pandas</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/" itemprop="url">
-              
-                <span itemprop="name">Adapting Pandas data type using Psycopg2</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/20/Pickle-can-t-dump-2GB-file/" rel="next" title="Pickle can't dump 2GB+ file on MAC OS X">
+                <i class="fa fa-chevron-left"></i> Pickle can't dump 2GB+ file on MAC OS X
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-21T08:33:00+08:00"
-              content="2016-09-21" >
-          09-21
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/"
+     data-title="Adapting Pandas data type using Psycopg2"
+     data-content=""
+     data-url="http://deo.im/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/20/Pickle-can-t-dump-2GB-file/" itemprop="url">
-              
-                <span itemprop="name">Pickle can't dump 2GB+ file on MAC OS X</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-20T07:09:00+08:00"
-              content="2016-09-20" >
-          09-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/19/Install-gdal-2-1-on-Mac-OS-X/" itemprop="url">
-              
-                <span itemprop="name">Install gdal 2.1 on Mac OS X</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-19T07:50:00+08:00"
-              content="2016-09-19" >
-          09-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/18/Problems-sending-email-through-celery/" itemprop="url">
-              
-                <span itemprop="name">Problems sending email through celery</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-18T08:12:00+08:00"
-              content="2016-09-18" >
-          09-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/16/some-open-source-projects/" itemprop="url">
-              
-                <span itemprop="name">some open source projects</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-16T16:55:00+08:00"
-              content="2016-09-16" >
-          09-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
+    </div>
+  </div>
 
 
           </div>
@@ -439,6 +419,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/"
+           data-title="Adapting Pandas data type using Psycopg2" data-url="http://deo.im/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -458,8 +446,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpeg"
@@ -522,6 +519,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -618,11 +626,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   

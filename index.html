@@ -248,6 +248,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/" itemprop="url">
+                  Adapting Pandas data type using Psycopg2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-21T08:33:00+08:00" content="2016-09-21">
+              2016-09-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/" class="leancloud_visitors" data-flag-title="Adapting Pandas data type using Psycopg2">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>As a data scientist you may probably use Pandas a lot to play with your data.</p>
+<p>While it’s quite easy to read data from PostgreSQL combined with Psycopg2:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> psycopg2</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line"><span class="keyword">with</span> psycopg2.connect(<span class="string">'some dsn'</span>) <span class="keyword">as</span> conn:</div><div class="line">  data = pd.read_sql_query(<span class="string">'your sql'</span>, conn)</div></pre></td></tr></table></figure></p>
+<p>but writing the data back to PostgreSQL we need to create some adapters. As the <a href="http://pandas.pydata.org/pandas-docs/stable/basics.html" target="_blank" rel="external">Pandas API doc(scroll down to bottom)</a> shows, you may do:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">mport psycopg2</div><div class="line"><span class="keyword">from</span> psycopg2 <span class="keyword">import</span> extensions</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_float</span><span class="params">(x)</span>:</span></div><div class="line">  <span class="string">"""psycopg2 interpolation to float"""</span></div><div class="line">  <span class="keyword">return</span> extensions.AsIs(<span class="string">'%f'</span> % float(x))</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_int</span><span class="params">(x)</span>:</span></div><div class="line">  <span class="string">"""psycopg2 interpolation to int"""</span></div><div class="line">  <span class="keyword">return</span> extensions.AsIs(<span class="string">'%d'</span> % int(x))</div><div class="line"></div><div class="line">extensions.register_adapter(np.floating, to_float)</div><div class="line">extensions.register_adapter(np.integer, to_int)</div></pre></td></tr></table></figure></p>
+<p>Notice we adapt the base type as Pandas internal storing of float/int may be a little different from what you see in ‘dtype’</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/20/Pickle-can-t-dump-2GB-file/" itemprop="url">
                   Pickle can't dump 2GB+ file on MAC OS X
                 </a>
@@ -738,7 +851,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -748,7 +861,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
