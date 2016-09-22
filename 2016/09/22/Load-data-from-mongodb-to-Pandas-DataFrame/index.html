@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,celery," />
+  <meta name="keywords" content="python,pandas,mongodb,odo,pymongo," />
 
 
 
@@ -84,28 +84,19 @@
 
 
 
-<meta name="description" content="versionspython 3.5
-celery 3.1.23
-taskIt will be nice that we could get email notification whenever a celery task fails. 
-There’s some built in email setting in Celery 3 through configuration.
-Followin">
+<meta name="description" content="MongoDB is a great document database for non-determined number or structure of fields yet separatable records.
+We use it to store our intermediate level of data ( which is a little bit cleaner than th">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Problems sending email through celery">
-<meta property="og:url" content="http://deo.im/2016/09/18/Problems-sending-email-through-celery/index.html">
+<meta property="og:title" content="Load data from MongoDB to Pandas DataFrame">
+<meta property="og:url" content="http://deo.im/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/index.html">
 <meta property="og:site_name" content="Deo">
-<meta property="og:description" content="versionspython 3.5
-celery 3.1.23
-taskIt will be nice that we could get email notification whenever a celery task fails. 
-There’s some built in email setting in Celery 3 through configuration.
-Followin">
-<meta property="og:updated_time" content="2016-09-19T00:00:49.000Z">
+<meta property="og:description" content="MongoDB is a great document database for non-determined number or structure of fields yet separatable records.
+We use it to store our intermediate level of data ( which is a little bit cleaner than th">
+<meta property="og:updated_time" content="2016-09-22T01:20:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Problems sending email through celery">
-<meta name="twitter:description" content="versionspython 3.5
-celery 3.1.23
-taskIt will be nice that we could get email notification whenever a celery task fails. 
-There’s some built in email setting in Celery 3 through configuration.
-Followin">
+<meta name="twitter:title" content="Load data from MongoDB to Pandas DataFrame">
+<meta name="twitter:description" content="MongoDB is a great document database for non-determined number or structure of fields yet separatable records.
+We use it to store our intermediate level of data ( which is a little bit cleaner than th">
 
 
 
@@ -126,9 +117,9 @@ Followin">
 
 
 
-  <link rel="canonical" href="http://deo.im/2016/09/18/Problems-sending-email-through-celery/"/>
+  <link rel="canonical" href="http://deo.im/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/"/>
 
-  <title> Problems sending email through celery | Deo </title>
+  <title> Load data from MongoDB to Pandas DataFrame | Deo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -258,7 +249,7 @@ Followin">
             
             
               
-                Problems sending email through celery
+                Load data from MongoDB to Pandas DataFrame
               
             
           </h1>
@@ -270,8 +261,8 @@ Followin">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-18T08:12:00+08:00" content="2016-09-18">
-              2016-09-18
+            <time itemprop="dateCreated" datetime="2016-09-22T08:30:00+08:00" content="2016-09-22">
+              2016-09-22
             </time>
           </span>
 
@@ -281,8 +272,8 @@ Followin">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/18/Problems-sending-email-through-celery/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/18/Problems-sending-email-through-celery/" itemprop="commentsCount"></span>
+                <a href="/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -292,7 +283,7 @@ Followin">
 
           
           
-             <span id="/2016/09/18/Problems-sending-email-through-celery/" class="leancloud_visitors" data-flag-title="Problems sending email through celery">
+             <span id="/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/" class="leancloud_visitors" data-flag-title="Load data from MongoDB to Pandas DataFrame">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -314,16 +305,13 @@ Followin">
       
 
       
-        <h3 id="versions"><a href="#versions" class="headerlink" title="versions"></a>versions</h3><p>python 3.5</p>
-<p>celery 3.1.23</p>
-<h3 id="task"><a href="#task" class="headerlink" title="task"></a>task</h3><p>It will be nice that we could get email notification whenever a celery task fails. </p>
-<p>There’s some built in email setting in Celery 3 through <a href="http://docs.celeryproject.org/en/latest/configuration.html" target="_blank" rel="external">configuration</a>.</p>
-<p>Following are sample configuration from the document:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Enables error emails.</span></div><div class="line">CELERY_SEND_TASK_ERROR_EMAILS = <span class="keyword">True</span></div><div class="line"></div><div class="line"><span class="comment"># Name and email addresses of recipients</span></div><div class="line">ADMINS = (</div><div class="line">    (<span class="string">'George Costanza'</span>, <span class="string">'george@vandelay.com'</span>),</div><div class="line">    (<span class="string">'Cosmo Kramer'</span>, <span class="string">'kosmo@vandelay.com'</span>),</div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment"># Email address used as sender (From field).</span></div><div class="line">SERVER_EMAIL = <span class="string">'no-reply@vandelay.com'</span></div><div class="line"></div><div class="line"><span class="comment"># Mailserver configuration</span></div><div class="line">EMAIL_HOST = <span class="string">'mail.vandelay.com'</span></div><div class="line">EMAIL_PORT = <span class="number">25</span></div><div class="line"><span class="comment"># EMAIL_HOST_USER = 'servers'</span></div><div class="line"><span class="comment"># EMAIL_HOST_PASSWORD = 's3cr3t'</span></div></pre></td></tr></table></figure></p>
-<h3 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h3><p>However there’s a problem for small tasks.</p>
-<p>The email sent by celery is sync which adds up the finish time for the task. Supposed it sends the email in 1s and your task fails in 10ms, this makes your task total run time up to 1.01s. It’s fine if you use it in long running task or trivil background job. However it’s completely unacceptable if you are using it for time critical jobs.</p>
-<p>Also this functionality is removed in up coming 4.0</p>
-<p><a href="http://docs.celeryproject.org/en/master/whatsnew-4.0.html#features-removed-for-simplicity" target="_blank" rel="external">http://docs.celeryproject.org/en/master/whatsnew-4.0.html#features-removed-for-simplicity</a></p>
-<h3 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h3><p>Obviously we need a way to handle this. using the <strong><em>link_error</em></strong> parameter in <strong><em>async_task</em></strong> may be a solution for single task. I’ll update the post when I have time to write some general async error email notification solution</p>
+        <p><a href="https://www.mongodb.com/" target="_blank" rel="external">MongoDB</a> is a great document database for non-determined number or structure of fields yet separatable records.</p>
+<p>We use it to store our intermediate level of data ( which is a little bit cleaner than the raw but not production ready) for model training. So there comes a question of how to load data from MongoDB collections to python pandas.DataFrame</p>
+<p>Supposed your are using pymongo to read:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pymongo</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line"><span class="keyword">with</span> pymongo.MongoClient(<span class="string">'mongodb://user:password@localhost:port/mydb'</span>) <span class="keyword">as</span> client:</div><div class="line">  collection = client.get_default_databasedb[<span class="string">'my collection'</span>]</div><div class="line">  data = pd.DataFrame(list(collection.find()))</div></pre></td></tr></table></figure></p>
+<p>This is quick and easy for small collection, yet it creates problems when one is big, the <strong>list</strong> function read all data from the cursor iterator of dictionaries into memory. So a slightly modification could help to maintain a low memory consumption (trade off a bit of performance):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">iterator2dataframes</span><span class="params">(iterator, chunk_size: int)</span>:</span></div><div class="line">  <span class="string">"""Turn an iterator into multiple small pandas.DataFrame</span></div><div class="line"></div><div class="line">  This is a balance between memory and efficiency</div><div class="line">  """</div><div class="line">  records = []</div><div class="line">  frames = []</div><div class="line">  <span class="keyword">for</span> i, record <span class="keyword">in</span> enumerate(iterator):</div><div class="line">    records.append(record)</div><div class="line">    <span class="keyword">if</span> i % chunk_size == chunk_size - <span class="number">1</span>:</div><div class="line">      frames.append(pd.DataFrame(records))</div><div class="line">      records = []</div><div class="line">  <span class="keyword">if</span> records:</div><div class="line">    frames.append(pd.DataFrame(records))</div><div class="line">  <span class="keyword">return</span> pd.concat(frames) <span class="keyword">if</span> frames <span class="keyword">else</span> pd.DataFrame()</div><div class="line">  </div><div class="line">data = iterator2dataframe(collection.find(), <span class="number">10000</span>)</div></pre></td></tr></table></figure></p>
+<p>If by chance you need to generate multiple DataFrame rows for each mongodb document (additional support of progress bar with tqdm):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">iterator2dataframe</span><span class="params">(iterator,</span></span></div><div class="line">                       chunk_size: int,</div><div class="line">                       func=None,</div><div class="line">                       **kwargs) -&gt; pd.DataFrame:</div><div class="line">  <span class="string">"""Turn an Mongo iterator into multiple small pandas.DataFrame</span></div><div class="line"></div><div class="line">  This is a balance between memory and efficiency</div><div class="line">  If no result, return empty pandas.DataFrame</div><div class="line">  Args:</div><div class="line">    iterator: an iterator</div><div class="line">    chunk_size: the row size of each small pandas.DataFrame</div><div class="line">    func: generator to transform each record</div><div class="line">    kwargs: extra parameters passed to tqdm.tqdm</div><div class="line">  Returns:</div><div class="line">    pandas.DataFrame</div><div class="line">  """</div><div class="line">  records = []</div><div class="line">  frames = []</div><div class="line">  <span class="keyword">for</span> i, record <span class="keyword">in</span> enumerate(tqdm(iterator, **kwargs)):</div><div class="line">    <span class="keyword">if</span> func:</div><div class="line">      <span class="keyword">for</span> new_record <span class="keyword">in</span> func(record):</div><div class="line">        records.append(new_record)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">      records.append(record)</div><div class="line">    <span class="keyword">if</span> i % chunk_size == chunk_size - <span class="number">1</span>:</div><div class="line">      frames.append(pd.DataFrame(records))</div><div class="line">      records = []</div><div class="line">  <span class="keyword">if</span> records:</div><div class="line">    frames.append(pd.DataFrame(records))</div><div class="line">  <span class="keyword">return</span> pd.concat(frames) <span class="keyword">if</span> frames <span class="keyword">else</span> pd.DataFrame()</div><div class="line">  </div><div class="line"><span class="comment"># func parameter example, must be a Generator</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_result</span><span class="params">(record)</span>:</span></div><div class="line">  <span class="keyword">for</span> interaction <span class="keyword">in</span> record[<span class="string">'xxx'</span>]:</div><div class="line">  <span class="keyword">yield</span> &#123;</div><div class="line">    <span class="string">'a'</span>: record[<span class="string">'_id'</span>],</div><div class="line">    <span class="string">'b'</span>: interaction[<span class="string">'b'</span>]</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">data = iterator2dataframe(collection.find(), <span class="number">1000</span>, func=record_result)</div></pre></td></tr></table></figure></p>
+<p>In fact, pandas.DataFrame support reading a Generator(not Iterator) as input, however the memory management seems to be bad<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># not recommended</span></div><div class="line">pd.DataFrame(<span class="keyword">lambda</span> x: <span class="keyword">yield</span> x <span class="keyword">for</span> x <span class="keyword">in</span> collection.find())</div></pre></td></tr></table></figure></p>
+<p>Alternatively, if you are just dumping a collection, you could try <a href="https://odo.readthedocs.io/en/latest/mongo.html" target="_blank" rel="external">odo’s mongo</a>, haven’t really tried it yet, shall do a comparison in the future update.</p>
 
       
     </div>
@@ -374,7 +362,13 @@ Followin">
           
             <a href="/tags/python/" rel="tag">#python</a>
           
-            <a href="/tags/celery/" rel="tag">#celery</a>
+            <a href="/tags/pandas/" rel="tag">#pandas</a>
+          
+            <a href="/tags/mongodb/" rel="tag">#mongodb</a>
+          
+            <a href="/tags/odo/" rel="tag">#odo</a>
+          
+            <a href="/tags/pymongo/" rel="tag">#pymongo</a>
           
         </div>
       
@@ -383,17 +377,13 @@ Followin">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/16/some-open-source-projects/" rel="next" title="some open source projects">
-                <i class="fa fa-chevron-left"></i> some open source projects
+              <a href="/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/" rel="next" title="Adapting Pandas data type using Psycopg2">
+                <i class="fa fa-chevron-left"></i> Adapting Pandas data type using Psycopg2
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/19/Install-gdal-2-1-on-Mac-OS-X/" rel="prev" title="Install gdal 2.1 on Mac OS X">
-                Install gdal 2.1 on Mac OS X <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -408,10 +398,10 @@ Followin">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/18/Problems-sending-email-through-celery/"
-     data-title="Problems sending email through celery"
+        <div class="ds-share flat" data-thread-key="2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/"
+     data-title="Load data from MongoDB to Pandas DataFrame"
      data-content=""
-     data-url="http://deo.im/2016/09/18/Problems-sending-email-through-celery/">
+     data-url="http://deo.im/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -438,8 +428,8 @@ Followin">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/18/Problems-sending-email-through-celery/"
-           data-title="Problems sending email through celery" data-url="http://deo.im/2016/09/18/Problems-sending-email-through-celery/">
+      <div class="ds-thread" data-thread-key="2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/"
+           data-title="Load data from MongoDB to Pandas DataFrame" data-url="http://deo.im/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/">
       </div>
     
   </div>
@@ -543,7 +533,7 @@ Followin">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#versions"><span class="nav-number">1.</span> <span class="nav-text">versions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#task"><span class="nav-number">2.</span> <span class="nav-text">task</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem"><span class="nav-number">3.</span> <span class="nav-text">problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-number">4.</span> <span class="nav-text">solution</span></a></li></ol></div>
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
             
           </div>
         </section>

@@ -248,6 +248,122 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/" itemprop="url">
+                  Load data from MongoDB to Pandas DataFrame
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-22T08:30:00+08:00" content="2016-09-22">
+              2016-09-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/" class="leancloud_visitors" data-flag-title="Load data from MongoDB to Pandas DataFrame">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.mongodb.com/" target="_blank" rel="external">MongoDB</a> is a great document database for non-determined number or structure of fields yet separatable records.</p>
+<p>We use it to store our intermediate level of data ( which is a little bit cleaner than the raw but not production ready) for model training. So there comes a question of how to load data from MongoDB collections to python pandas.DataFrame</p>
+<p>Supposed your are using pymongo to read:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pymongo</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line"><span class="keyword">with</span> pymongo.MongoClient(<span class="string">'mongodb://user:password@localhost:port/mydb'</span>) <span class="keyword">as</span> client:</div><div class="line">  collection = client.get_default_databasedb[<span class="string">'my collection'</span>]</div><div class="line">  data = pd.DataFrame(list(collection.find()))</div></pre></td></tr></table></figure></p>
+<p>This is quick and easy for small collection, yet it creates problems when one is big, the <strong>list</strong> function read all data from the cursor iterator of dictionaries into memory. So a slightly modification could help to maintain a low memory consumption (trade off a bit of performance):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">iterator2dataframes</span><span class="params">(iterator, chunk_size: int)</span>:</span></div><div class="line">  <span class="string">"""Turn an iterator into multiple small pandas.DataFrame</span></div><div class="line"></div><div class="line">  This is a balance between memory and efficiency</div><div class="line">  """</div><div class="line">  records = []</div><div class="line">  frames = []</div><div class="line">  <span class="keyword">for</span> i, record <span class="keyword">in</span> enumerate(iterator):</div><div class="line">    records.append(record)</div><div class="line">    <span class="keyword">if</span> i % chunk_size == chunk_size - <span class="number">1</span>:</div><div class="line">      frames.append(pd.DataFrame(records))</div><div class="line">      records = []</div><div class="line">  <span class="keyword">if</span> records:</div><div class="line">    frames.append(pd.DataFrame(records))</div><div class="line">  <span class="keyword">return</span> pd.concat(frames) <span class="keyword">if</span> frames <span class="keyword">else</span> pd.DataFrame()</div><div class="line">  </div><div class="line">data = iterator2dataframe(collection.find(), <span class="number">10000</span>)</div></pre></td></tr></table></figure></p>
+<p>If by chance you need to generate multiple DataFrame rows for each mongodb document (additional support of progress bar with tqdm):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">iterator2dataframe</span><span class="params">(iterator,</span></span></div><div class="line">                       chunk_size: int,</div><div class="line">                       func=None,</div><div class="line">                       **kwargs) -&gt; pd.DataFrame:</div><div class="line">  <span class="string">"""Turn an Mongo iterator into multiple small pandas.DataFrame</span></div><div class="line"></div><div class="line">  This is a balance between memory and efficiency</div><div class="line">  If no result, return empty pandas.DataFrame</div><div class="line">  Args:</div><div class="line">    iterator: an iterator</div><div class="line">    chunk_size: the row size of each small pandas.DataFrame</div><div class="line">    func: generator to transform each record</div><div class="line">    kwargs: extra parameters passed to tqdm.tqdm</div><div class="line">  Returns:</div><div class="line">    pandas.DataFrame</div><div class="line">  """</div><div class="line">  records = []</div><div class="line">  frames = []</div><div class="line">  <span class="keyword">for</span> i, record <span class="keyword">in</span> enumerate(tqdm(iterator, **kwargs)):</div><div class="line">    <span class="keyword">if</span> func:</div><div class="line">      <span class="keyword">for</span> new_record <span class="keyword">in</span> func(record):</div><div class="line">        records.append(new_record)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">      records.append(record)</div><div class="line">    <span class="keyword">if</span> i % chunk_size == chunk_size - <span class="number">1</span>:</div><div class="line">      frames.append(pd.DataFrame(records))</div><div class="line">      records = []</div><div class="line">  <span class="keyword">if</span> records:</div><div class="line">    frames.append(pd.DataFrame(records))</div><div class="line">  <span class="keyword">return</span> pd.concat(frames) <span class="keyword">if</span> frames <span class="keyword">else</span> pd.DataFrame()</div><div class="line">  </div><div class="line"><span class="comment"># func parameter example, must be a Generator</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_result</span><span class="params">(record)</span>:</span></div><div class="line">  <span class="keyword">for</span> interaction <span class="keyword">in</span> record[<span class="string">'xxx'</span>]:</div><div class="line">  <span class="keyword">yield</span> &#123;</div><div class="line">    <span class="string">'a'</span>: record[<span class="string">'_id'</span>],</div><div class="line">    <span class="string">'b'</span>: interaction[<span class="string">'b'</span>]</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">data = iterator2dataframe(collection.find(), <span class="number">1000</span>, func=record_result)</div></pre></td></tr></table></figure></p>
+<p>In fact, pandas.DataFrame support reading a Generator(not Iterator) as input, however the memory management seems to be bad<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># not recommended</span></div><div class="line">pd.DataFrame(<span class="keyword">lambda</span> x: <span class="keyword">yield</span> x <span class="keyword">for</span> x <span class="keyword">in</span> collection.find())</div></pre></td></tr></table></figure></p>
+<p>Alternatively, if you are just dumping a collection, you could try <a href="https://odo.readthedocs.io/en/latest/mongo.html" target="_blank" rel="external">odo’s mongo</a>, haven’t really tried it yet, shall do a comparison in the future update.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/" itemprop="url">
                   Adapting Pandas data type using Psycopg2
                 </a>
@@ -851,7 +967,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -861,7 +977,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
