@@ -248,6 +248,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/23/Using-scikit-learn-in-Celery/" itemprop="url">
+                  Using scikit-learn in Celery
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-23T08:46:00+08:00" content="2016-09-23">
+              2016-09-23
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/23/Using-scikit-learn-in-Celery/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/Using-scikit-learn-in-Celery/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/23/Using-scikit-learn-in-Celery/" class="leancloud_visitors" data-flag-title="Using scikit-learn in Celery">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.celeryproject.org/" target="_blank" rel="external">Celery</a> is great if you want to distribute your tasks into multi processes/machines.</p>
+<p>However if you use Python’s multiprocess with a Celery task, you may probably encounter:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">raised unexpected: AttributeError(<span class="string">"'Worker' object has no attribute '_config'"</span>,)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/celery/app/trace.py"</span>, line 240, <span class="keyword">in</span> trace_task</div><div class="line">    R = retval = fun(*args, **kwargs)</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/celery/app/trace.py"</span>, line 438, <span class="keyword">in</span> __protected_call__</div><div class="line">    <span class="built_in">return</span> self.run(*args, **kwargs)</div><div class="line">  File <span class="string">"/Users/.../pyproj/modeling/tasks/miscellaneous.py"</span>, line 29, <span class="keyword">in</span> predict_house_type</div><div class="line">    clf = pickle.loads(f.read())</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/__init__.py"</span>, line 57, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from .base import <span class="built_in">clone</span></div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/base.py"</span>, line 11, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from .utils.fixes import signature</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/utils/__init__.py"</span>, line 17, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from ..externals.joblib import cpu_count</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/externals/joblib/__init__.py"</span>, line 127, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from .parallel import Parallel</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/externals/joblib/parallel.py"</span>, line 25, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from ._multiprocessing_helpers import mp</div><div class="line">  File <span class="string">"/Users/liangdeo/.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/externals/joblib/_multiprocessing_helpers.py"</span>, line 25, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    _sem = mp.Semaphore()</div><div class="line">  File <span class="string">"/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/context.py"</span>, line 81, <span class="keyword">in</span> Semaphore</div><div class="line">    <span class="built_in">return</span> Semaphore(value, ctx=self.get_context())</div><div class="line">  File <span class="string">"/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/synchronize.py"</span>, line 127, <span class="keyword">in</span> __init__</div><div class="line">    SemLock.__init__(self, SEMAPHORE, value, SEM_VALUE_MAX, ctx=ctx)</div><div class="line">  File <span class="string">"/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/synchronize.py"</span>, line 59, <span class="keyword">in</span> __init__</div><div class="line">    kind, value, maxvalue, self._make_name(),</div><div class="line">  File <span class="string">"/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/synchronize.py"</span>, line 117, <span class="keyword">in</span> _make_name</div><div class="line">    <span class="built_in">return</span> <span class="string">'%s-%s'</span> % (process.current_process()._config[<span class="string">'semprefix'</span>],</div><div class="line">AttributeError: <span class="string">'Worker'</span> object has no attribute <span class="string">'_config'</span></div></pre></td></tr></table></figure></p>
+<p>It’s a known issue that Celery doesn’t support multiprocess well in task <a href="https://github.com/celery/billiard/issues/168" target="_blank" rel="external">issue</a>. One solution will be to refactorize your code to avoid using multiprocess, since you already have Celery to do it for you.</p>
+<p>However if you are using libries lick scikit-learn, ntlk which use multiprocess underneath, you may try the following to workaround it:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># some_task.py</span></div><div class="line"><span class="keyword">from</span> celery.signals <span class="keyword">import</span> worker_process_init</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@worker_process_init.connect</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fix_multiprocessing</span><span class="params">(**_)</span>:</span></div><div class="line">  <span class="keyword">from</span> multiprocessing <span class="keyword">import</span> current_process</div><div class="line">  <span class="keyword">try</span>:</div><div class="line">    current_process()._config</div><div class="line">  <span class="keyword">except</span> AttributeError:</div><div class="line">    current_process()._config = &#123;<span class="string">'semprefix'</span>: <span class="string">'/mp'</span>&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/" itemprop="url">
                   Load data from MongoDB to Pandas DataFrame
                 </a>
@@ -967,7 +1080,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -977,7 +1090,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
