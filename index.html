@@ -248,6 +248,131 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/24/更新有赞Nodejs-SDK支持Push推送/" itemprop="url">
+                  更新有赞Nodejs SDK支持Push推送
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-24T15:23:00+08:00" content="2016-09-24">
+              2016-09-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/24/更新有赞Nodejs-SDK支持Push推送/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/24/更新有赞Nodejs-SDK支持Push推送/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/24/更新有赞Nodejs-SDK支持Push推送/" class="leancloud_visitors" data-flag-title="更新有赞Nodejs SDK支持Push推送">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>不知不觉之前在 <a href="http://www.xfxb.net/" target="_blank" rel="external">幸福西饼</a> 当CTO时写的小SDK <a href="https://www.npmjs.com/package/deo-youzan" target="_blank" rel="external">deo-youzan</a> 终于突破2k下载了，于是趁着周末稍稍更新了一下</p>
+<p>关于有赞启动Push消息推送服务，可以参考其论坛公告:</p>
+<p><a href="https://bbs.youzan.com/forum.php?mod=viewthread&amp;tid=479159" target="_blank" rel="external">[接口开放] 有赞即将发布接口限流策略，请大家尽快接入Push数据推送服务</a></p>
+<p>一如既往地，开发文档非常不完善，接下来提供点思路与消息结构给需要用其他语言支持该推送的同学一些参考（仅商家自行开发部分，第三方服务商理论上也差不多）：</p>
+<p>首先，需要进入有赞管理后台配置一下推送地址：</p>
+<p><a href="https://koudaitong.com/v2/apps/open/setting" target="_blank" rel="external">https://koudaitong.com/v2/apps/open/setting</a></p>
+<p><img src="/uploads/youzan_apps_open_setting.jpeg" alt="有赞后台"></p>
+<p>在‘推送网址’填入你的接收地址，这里以<a href="https://ngrok.com" target="_blank" rel="external">ngrok</a>作为参考：</p>
+<ol>
+<li>下载客户端 <a href="https://ngrok.com/download" target="_blank" rel="external">https://ngrok.com/download</a></li>
+<li>参照 <a href="https://ngrok.com/docs#expose" target="_blank" rel="external">https://ngrok.com/docs#expose</a> 映射你的本地端口， 然后把得到的网址贴到推送网址<br><img src="/uploads/ngrok_forward.jpeg" alt="ngrok"></li>
+<li>在浏览器打开 <a href="http://localhost:4040" target="_blank" rel="external">http://localhost:4040</a> 就可以看到有赞发过来的数据包了<br><img src="/uploads/ngrok_ui.jpeg" alt="ngrok"></li>
+</ol>
+<p>下面列举一下推送request的body格式（这个和论坛的说明有出入），已经过json解析：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  // 这里是app_id, 不是appid</div><div class="line">  app_id: 'your app id',</div><div class="line">  id: 'the order id',</div><div class="line">  kdt_id: 18161909,</div><div class="line">  kdt_name: 'your shop name',</div><div class="line">  mode: 0,</div><div class="line">  // 如果是Nodejs, JSON.parse(decodeURI(msg)) 就可以获得msg的内容</div><div class="line">  msg: 'url encoded string',</div><div class="line">  // 这里是sendCount, 不是send_count</div><div class="line">  sendCount: 0,</div><div class="line">  // 只需要简单地把appid, body的msg（不用decode)，和对应的appsecrect拼接作md5就可以</div><div class="line">  sign: 'md5 app_id + msg + app_secret',</div><div class="line">  status: 'WAIT_BUYER_PAY',</div><div class="line">  test: false,</div><div class="line">  // 目前只有TRADE</div><div class="line">  type: 'TRADE',</div><div class="line">  version: 1474696566</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果大家使用的是Nodejs和express，欢迎直接下载使用 <a href="https://github.com/MadHouses/youzan" target="_blank" rel="external">https://github.com/MadHouses/youzan</a></p>
+<p>相关使用问题（特别是push部分），欢迎到 <a href="https://github.com/MadHouses/youzan/issues" target="_blank" rel="external">https://github.com/MadHouses/youzan/issues</a> 提交issue或直接pull request（因为目前的工作不用Nodejs, 所以更新可能稍慢，见谅）</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/23/Using-scikit-learn-in-Celery/" itemprop="url">
                   Using scikit-learn in Celery
                 </a>
@@ -1080,7 +1205,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1090,7 +1215,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,celery,scikit-learn," />
+  <meta name="keywords" content="deo-youzan,nodejs," />
 
 
 
@@ -84,19 +84,29 @@
 
 
 
-<meta name="description" content="Celery is great if you want to distribute your tasks into multi processes/machines.
-However if you use Python’s multiprocess with a Celery task, you may probably encounter:1234567891011121314151617181">
+<meta name="description" content="不知不觉之前在 幸福西饼 当CTO时写的小SDK deo-youzan 终于突破2k下载了，于是趁着周末稍稍更新了一下
+关于有赞启动Push消息推送服务，可以参考其论坛公告:
+[接口开放] 有赞即将发布接口限流策略，请大家尽快接入Push数据推送服务
+一如既往地，开发文档非常不完善，接下来提供点思路与消息结构给需要用其他语言支持该推送的同学一些参考（仅商家自行开发部分，第三方服务商理论上也差不多）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Using scikit-learn in Celery">
-<meta property="og:url" content="http://deo.im/2016/09/23/Using-scikit-learn-in-Celery/index.html">
+<meta property="og:title" content="更新有赞Nodejs SDK支持Push推送">
+<meta property="og:url" content="http://deo.im/2016/09/24/更新有赞Nodejs-SDK支持Push推送/index.html">
 <meta property="og:site_name" content="Deo">
-<meta property="og:description" content="Celery is great if you want to distribute your tasks into multi processes/machines.
-However if you use Python’s multiprocess with a Celery task, you may probably encounter:1234567891011121314151617181">
-<meta property="og:updated_time" content="2016-09-23T01:38:30.000Z">
+<meta property="og:description" content="不知不觉之前在 幸福西饼 当CTO时写的小SDK deo-youzan 终于突破2k下载了，于是趁着周末稍稍更新了一下
+关于有赞启动Push消息推送服务，可以参考其论坛公告:
+[接口开放] 有赞即将发布接口限流策略，请大家尽快接入Push数据推送服务
+一如既往地，开发文档非常不完善，接下来提供点思路与消息结构给需要用其他语言支持该推送的同学一些参考（仅商家自行开发部分，第三方服务商理论上也差不多）">
+<meta property="og:image" content="http://deo.im/uploads/youzan_apps_open_setting.jpeg">
+<meta property="og:image" content="http://deo.im/uploads/ngrok_forward.jpeg">
+<meta property="og:image" content="http://deo.im/uploads/ngrok_ui.jpeg">
+<meta property="og:updated_time" content="2016-09-24T08:00:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Using scikit-learn in Celery">
-<meta name="twitter:description" content="Celery is great if you want to distribute your tasks into multi processes/machines.
-However if you use Python’s multiprocess with a Celery task, you may probably encounter:1234567891011121314151617181">
+<meta name="twitter:title" content="更新有赞Nodejs SDK支持Push推送">
+<meta name="twitter:description" content="不知不觉之前在 幸福西饼 当CTO时写的小SDK deo-youzan 终于突破2k下载了，于是趁着周末稍稍更新了一下
+关于有赞启动Push消息推送服务，可以参考其论坛公告:
+[接口开放] 有赞即将发布接口限流策略，请大家尽快接入Push数据推送服务
+一如既往地，开发文档非常不完善，接下来提供点思路与消息结构给需要用其他语言支持该推送的同学一些参考（仅商家自行开发部分，第三方服务商理论上也差不多）">
+<meta name="twitter:image" content="http://deo.im/uploads/youzan_apps_open_setting.jpeg">
 
 
 
@@ -117,9 +127,9 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
 
 
 
-  <link rel="canonical" href="http://deo.im/2016/09/23/Using-scikit-learn-in-Celery/"/>
+  <link rel="canonical" href="http://deo.im/2016/09/24/更新有赞Nodejs-SDK支持Push推送/"/>
 
-  <title> Using scikit-learn in Celery | Deo </title>
+  <title> 更新有赞Nodejs SDK支持Push推送 | Deo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -249,7 +259,7 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
             
             
               
-                Using scikit-learn in Celery
+                更新有赞Nodejs SDK支持Push推送
               
             
           </h1>
@@ -261,8 +271,8 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-23T08:46:00+08:00" content="2016-09-23">
-              2016-09-23
+            <time itemprop="dateCreated" datetime="2016-09-24T15:23:00+08:00" content="2016-09-24">
+              2016-09-24
             </time>
           </span>
 
@@ -272,8 +282,8 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/23/Using-scikit-learn-in-Celery/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/Using-scikit-learn-in-Celery/" itemprop="commentsCount"></span>
+                <a href="/2016/09/24/更新有赞Nodejs-SDK支持Push推送/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/24/更新有赞Nodejs-SDK支持Push推送/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -283,7 +293,7 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
 
           
           
-             <span id="/2016/09/23/Using-scikit-learn-in-Celery/" class="leancloud_visitors" data-flag-title="Using scikit-learn in Celery">
+             <span id="/2016/09/24/更新有赞Nodejs-SDK支持Push推送/" class="leancloud_visitors" data-flag-title="更新有赞Nodejs SDK支持Push推送">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -305,10 +315,22 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
       
 
       
-        <p><a href="http://www.celeryproject.org/" target="_blank" rel="external">Celery</a> is great if you want to distribute your tasks into multi processes/machines.</p>
-<p>However if you use Python’s multiprocess with a Celery task, you may probably encounter:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">raised unexpected: AttributeError(<span class="string">"'Worker' object has no attribute '_config'"</span>,)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/celery/app/trace.py"</span>, line 240, <span class="keyword">in</span> trace_task</div><div class="line">    R = retval = fun(*args, **kwargs)</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/celery/app/trace.py"</span>, line 438, <span class="keyword">in</span> __protected_call__</div><div class="line">    <span class="built_in">return</span> self.run(*args, **kwargs)</div><div class="line">  File <span class="string">"/Users/.../pyproj/modeling/tasks/miscellaneous.py"</span>, line 29, <span class="keyword">in</span> predict_house_type</div><div class="line">    clf = pickle.loads(f.read())</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/__init__.py"</span>, line 57, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from .base import <span class="built_in">clone</span></div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/base.py"</span>, line 11, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from .utils.fixes import signature</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/utils/__init__.py"</span>, line 17, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from ..externals.joblib import cpu_count</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/externals/joblib/__init__.py"</span>, line 127, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from .parallel import Parallel</div><div class="line">  File <span class="string">"/Users/.../.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/externals/joblib/parallel.py"</span>, line 25, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    from ._multiprocessing_helpers import mp</div><div class="line">  File <span class="string">"/Users/liangdeo/.virtualenvs/mdt-dev/lib/python3.5/site-packages/sklearn/externals/joblib/_multiprocessing_helpers.py"</span>, line 25, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    _sem = mp.Semaphore()</div><div class="line">  File <span class="string">"/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/context.py"</span>, line 81, <span class="keyword">in</span> Semaphore</div><div class="line">    <span class="built_in">return</span> Semaphore(value, ctx=self.get_context())</div><div class="line">  File <span class="string">"/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/synchronize.py"</span>, line 127, <span class="keyword">in</span> __init__</div><div class="line">    SemLock.__init__(self, SEMAPHORE, value, SEM_VALUE_MAX, ctx=ctx)</div><div class="line">  File <span class="string">"/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/synchronize.py"</span>, line 59, <span class="keyword">in</span> __init__</div><div class="line">    kind, value, maxvalue, self._make_name(),</div><div class="line">  File <span class="string">"/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/synchronize.py"</span>, line 117, <span class="keyword">in</span> _make_name</div><div class="line">    <span class="built_in">return</span> <span class="string">'%s-%s'</span> % (process.current_process()._config[<span class="string">'semprefix'</span>],</div><div class="line">AttributeError: <span class="string">'Worker'</span> object has no attribute <span class="string">'_config'</span></div></pre></td></tr></table></figure></p>
-<p>It’s a known issue that Celery doesn’t support multiprocess well in task <a href="https://github.com/celery/billiard/issues/168" target="_blank" rel="external">issue</a>. One solution will be to refactorize your code to avoid using multiprocess, since you already have Celery to do it for you.</p>
-<p>However if you are using libries lick scikit-learn, ntlk which use multiprocess underneath, you may try the following to workaround it:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># some_task.py</span></div><div class="line"><span class="keyword">from</span> celery.signals <span class="keyword">import</span> worker_process_init</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@worker_process_init.connect</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fix_multiprocessing</span><span class="params">(**_)</span>:</span></div><div class="line">  <span class="keyword">from</span> multiprocessing <span class="keyword">import</span> current_process</div><div class="line">  <span class="keyword">try</span>:</div><div class="line">    current_process()._config</div><div class="line">  <span class="keyword">except</span> AttributeError:</div><div class="line">    current_process()._config = &#123;<span class="string">'semprefix'</span>: <span class="string">'/mp'</span>&#125;</div></pre></td></tr></table></figure></p>
+        <p>不知不觉之前在 <a href="http://www.xfxb.net/" target="_blank" rel="external">幸福西饼</a> 当CTO时写的小SDK <a href="https://www.npmjs.com/package/deo-youzan" target="_blank" rel="external">deo-youzan</a> 终于突破2k下载了，于是趁着周末稍稍更新了一下</p>
+<p>关于有赞启动Push消息推送服务，可以参考其论坛公告:</p>
+<p><a href="https://bbs.youzan.com/forum.php?mod=viewthread&amp;tid=479159" target="_blank" rel="external">[接口开放] 有赞即将发布接口限流策略，请大家尽快接入Push数据推送服务</a></p>
+<p>一如既往地，开发文档非常不完善，接下来提供点思路与消息结构给需要用其他语言支持该推送的同学一些参考（仅商家自行开发部分，第三方服务商理论上也差不多）：</p>
+<p>首先，需要进入有赞管理后台配置一下推送地址：</p>
+<p><a href="https://koudaitong.com/v2/apps/open/setting" target="_blank" rel="external">https://koudaitong.com/v2/apps/open/setting</a></p>
+<p><img src="/uploads/youzan_apps_open_setting.jpeg" alt="有赞后台"></p>
+<p>在‘推送网址’填入你的接收地址，这里以<a href="https://ngrok.com" target="_blank" rel="external">ngrok</a>作为参考：</p>
+<ol>
+<li>下载客户端 <a href="https://ngrok.com/download" target="_blank" rel="external">https://ngrok.com/download</a></li>
+<li>参照 <a href="https://ngrok.com/docs#expose" target="_blank" rel="external">https://ngrok.com/docs#expose</a> 映射你的本地端口， 然后把得到的网址贴到推送网址<br><img src="/uploads/ngrok_forward.jpeg" alt="ngrok"></li>
+<li>在浏览器打开 <a href="http://localhost:4040" target="_blank" rel="external">http://localhost:4040</a> 就可以看到有赞发过来的数据包了<br><img src="/uploads/ngrok_ui.jpeg" alt="ngrok"></li>
+</ol>
+<p>下面列举一下推送request的body格式（这个和论坛的说明有出入），已经过json解析：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  // 这里是app_id, 不是appid</div><div class="line">  app_id: 'your app id',</div><div class="line">  id: 'the order id',</div><div class="line">  kdt_id: 18161909,</div><div class="line">  kdt_name: 'your shop name',</div><div class="line">  mode: 0,</div><div class="line">  // 如果是Nodejs, JSON.parse(decodeURI(msg)) 就可以获得msg的内容</div><div class="line">  msg: 'url encoded string',</div><div class="line">  // 这里是sendCount, 不是send_count</div><div class="line">  sendCount: 0,</div><div class="line">  // 只需要简单地把appid, body的msg（不用decode)，和对应的appsecrect拼接作md5就可以</div><div class="line">  sign: 'md5 app_id + msg + app_secret',</div><div class="line">  status: 'WAIT_BUYER_PAY',</div><div class="line">  test: false,</div><div class="line">  // 目前只有TRADE</div><div class="line">  type: 'TRADE',</div><div class="line">  version: 1474696566</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果大家使用的是Nodejs和express，欢迎直接下载使用 <a href="https://github.com/MadHouses/youzan" target="_blank" rel="external">https://github.com/MadHouses/youzan</a></p>
+<p>相关使用问题（特别是push部分），欢迎到 <a href="https://github.com/MadHouses/youzan/issues" target="_blank" rel="external">https://github.com/MadHouses/youzan/issues</a> 提交issue或直接pull request（因为目前的工作不用Nodejs, 所以更新可能稍慢，见谅）</p>
 
       
     </div>
@@ -357,11 +379,9 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/deo-youzan/" rel="tag">#deo-youzan</a>
           
-            <a href="/tags/celery/" rel="tag">#celery</a>
-          
-            <a href="/tags/scikit-learn/" rel="tag">#scikit-learn</a>
+            <a href="/tags/nodejs/" rel="tag">#nodejs</a>
           
         </div>
       
@@ -370,17 +390,13 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/" rel="next" title="Load data from MongoDB to Pandas DataFrame">
-                <i class="fa fa-chevron-left"></i> Load data from MongoDB to Pandas DataFrame
+              <a href="/2016/09/23/Using-scikit-learn-in-Celery/" rel="next" title="Using scikit-learn in Celery">
+                <i class="fa fa-chevron-left"></i> Using scikit-learn in Celery
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/24/更新有赞Nodejs-SDK支持Push推送/" rel="prev" title="更新有赞Nodejs SDK支持Push推送">
-                更新有赞Nodejs SDK支持Push推送 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -395,10 +411,10 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/23/Using-scikit-learn-in-Celery/"
-     data-title="Using scikit-learn in Celery"
+        <div class="ds-share flat" data-thread-key="2016/09/24/更新有赞Nodejs-SDK支持Push推送/"
+     data-title="更新有赞Nodejs SDK支持Push推送"
      data-content=""
-     data-url="http://deo.im/2016/09/23/Using-scikit-learn-in-Celery/">
+     data-url="http://deo.im/2016/09/24/更新有赞Nodejs-SDK支持Push推送/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -425,8 +441,8 @@ However if you use Python’s multiprocess with a Celery task, you may probably 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/23/Using-scikit-learn-in-Celery/"
-           data-title="Using scikit-learn in Celery" data-url="http://deo.im/2016/09/23/Using-scikit-learn-in-Celery/">
+      <div class="ds-thread" data-thread-key="2016/09/24/更新有赞Nodejs-SDK支持Push推送/"
+           data-title="更新有赞Nodejs SDK支持Push推送" data-url="http://deo.im/2016/09/24/更新有赞Nodejs-SDK支持Push推送/">
       </div>
     
   </div>
