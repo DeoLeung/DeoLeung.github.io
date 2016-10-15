@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="pandas,python,mongodb,odo,pymongo," />
+  <meta name="keywords" content="python,celery," />
 
 
 
@@ -84,19 +84,28 @@
 
 
 
-<meta name="description" content="MongoDB is a great document database for non-determined number or structure of fields yet separatable records.
-We use it to store our intermediate level of data ( which is a little bit cleaner than th">
+<meta name="description" content="最近公司业务复杂度在提升，因此需要更复杂的celery(3.1.24)任务调度与依赖。
+其中一项是chain of groups，需要把group任务进行chain串行调度。
+参照Celery的文档：
+chain group with other task will be a chord
+如果直接把group放在chain里，实际上会被转化为chord, 因此group里面的每一个task，都必须">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Load data from MongoDB to Pandas DataFrame">
-<meta property="og:url" content="http://deo.im/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/index.html">
+<meta property="og:title" content="Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)">
+<meta property="og:url" content="http://deo.im/2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/index.html">
 <meta property="og:site_name" content="Deo">
-<meta property="og:description" content="MongoDB is a great document database for non-determined number or structure of fields yet separatable records.
-We use it to store our intermediate level of data ( which is a little bit cleaner than th">
-<meta property="og:updated_time" content="2016-09-22T01:20:06.000Z">
+<meta property="og:description" content="最近公司业务复杂度在提升，因此需要更复杂的celery(3.1.24)任务调度与依赖。
+其中一项是chain of groups，需要把group任务进行chain串行调度。
+参照Celery的文档：
+chain group with other task will be a chord
+如果直接把group放在chain里，实际上会被转化为chord, 因此group里面的每一个task，都必须">
+<meta property="og:updated_time" content="2016-10-15T07:29:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Load data from MongoDB to Pandas DataFrame">
-<meta name="twitter:description" content="MongoDB is a great document database for non-determined number or structure of fields yet separatable records.
-We use it to store our intermediate level of data ( which is a little bit cleaner than th">
+<meta name="twitter:title" content="Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)">
+<meta name="twitter:description" content="最近公司业务复杂度在提升，因此需要更复杂的celery(3.1.24)任务调度与依赖。
+其中一项是chain of groups，需要把group任务进行chain串行调度。
+参照Celery的文档：
+chain group with other task will be a chord
+如果直接把group放在chain里，实际上会被转化为chord, 因此group里面的每一个task，都必须">
 
 
 
@@ -117,9 +126,9 @@ We use it to store our intermediate level of data ( which is a little bit cleane
 
 
 
-  <link rel="canonical" href="http://deo.im/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/"/>
+  <link rel="canonical" href="http://deo.im/2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/"/>
 
-  <title> Load data from MongoDB to Pandas DataFrame | Deo </title>
+  <title> Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0) | Deo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -249,7 +258,7 @@ We use it to store our intermediate level of data ( which is a little bit cleane
             
             
               
-                Load data from MongoDB to Pandas DataFrame
+                Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)
               
             
           </h1>
@@ -261,8 +270,8 @@ We use it to store our intermediate level of data ( which is a little bit cleane
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-22T08:30:00+08:00" content="2016-09-22">
-              2016-09-22
+            <time itemprop="dateCreated" datetime="2016-10-15T12:15:00+08:00" content="2016-10-15">
+              2016-10-15
             </time>
           </span>
 
@@ -272,8 +281,8 @@ We use it to store our intermediate level of data ( which is a little bit cleane
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/" itemprop="commentsCount"></span>
+                <a href="/2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -283,7 +292,7 @@ We use it to store our intermediate level of data ( which is a little bit cleane
 
           
           
-             <span id="/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/" class="leancloud_visitors" data-flag-title="Load data from MongoDB to Pandas DataFrame">
+             <span id="/2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/" class="leancloud_visitors" data-flag-title="Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -305,13 +314,20 @@ We use it to store our intermediate level of data ( which is a little bit cleane
       
 
       
-        <p><a href="https://www.mongodb.com/" target="_blank" rel="external">MongoDB</a> is a great document database for non-determined number or structure of fields yet separatable records.</p>
-<p>We use it to store our intermediate level of data ( which is a little bit cleaner than the raw but not production ready) for model training. So there comes a question of how to load data from MongoDB collections to python pandas.DataFrame</p>
-<p>Supposed your are using pymongo to read:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pymongo</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line"><span class="keyword">with</span> pymongo.MongoClient(<span class="string">'mongodb://user:password@localhost:port/mydb'</span>) <span class="keyword">as</span> client:</div><div class="line">  collection = client.get_default_databasedb[<span class="string">'my collection'</span>]</div><div class="line">  data = pd.DataFrame(list(collection.find()))</div></pre></td></tr></table></figure></p>
-<p>This is quick and easy for small collection, yet it creates problems when one is big, the <strong>list</strong> function read all data from the cursor iterator of dictionaries into memory. So a slightly modification could help to maintain a low memory consumption (trade off a bit of performance):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">iterator2dataframes</span><span class="params">(iterator, chunk_size: int)</span>:</span></div><div class="line">  <span class="string">"""Turn an iterator into multiple small pandas.DataFrame</span></div><div class="line"></div><div class="line">  This is a balance between memory and efficiency</div><div class="line">  """</div><div class="line">  records = []</div><div class="line">  frames = []</div><div class="line">  <span class="keyword">for</span> i, record <span class="keyword">in</span> enumerate(iterator):</div><div class="line">    records.append(record)</div><div class="line">    <span class="keyword">if</span> i % chunk_size == chunk_size - <span class="number">1</span>:</div><div class="line">      frames.append(pd.DataFrame(records))</div><div class="line">      records = []</div><div class="line">  <span class="keyword">if</span> records:</div><div class="line">    frames.append(pd.DataFrame(records))</div><div class="line">  <span class="keyword">return</span> pd.concat(frames) <span class="keyword">if</span> frames <span class="keyword">else</span> pd.DataFrame()</div><div class="line">  </div><div class="line">data = iterator2dataframe(collection.find(), <span class="number">10000</span>)</div></pre></td></tr></table></figure></p>
-<p>If by chance you need to generate multiple DataFrame rows for each mongodb document (additional support of progress bar with tqdm):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">iterator2dataframe</span><span class="params">(iterator,</span></span></div><div class="line">                       chunk_size: int,</div><div class="line">                       func=None,</div><div class="line">                       **kwargs) -&gt; pd.DataFrame:</div><div class="line">  <span class="string">"""Turn an Mongo iterator into multiple small pandas.DataFrame</span></div><div class="line"></div><div class="line">  This is a balance between memory and efficiency</div><div class="line">  If no result, return empty pandas.DataFrame</div><div class="line">  Args:</div><div class="line">    iterator: an iterator</div><div class="line">    chunk_size: the row size of each small pandas.DataFrame</div><div class="line">    func: generator to transform each record</div><div class="line">    kwargs: extra parameters passed to tqdm.tqdm</div><div class="line">  Returns:</div><div class="line">    pandas.DataFrame</div><div class="line">  """</div><div class="line">  records = []</div><div class="line">  frames = []</div><div class="line">  <span class="keyword">for</span> i, record <span class="keyword">in</span> enumerate(tqdm(iterator, **kwargs)):</div><div class="line">    <span class="keyword">if</span> func:</div><div class="line">      <span class="keyword">for</span> new_record <span class="keyword">in</span> func(record):</div><div class="line">        records.append(new_record)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">      records.append(record)</div><div class="line">    <span class="keyword">if</span> i % chunk_size == chunk_size - <span class="number">1</span>:</div><div class="line">      frames.append(pd.DataFrame(records))</div><div class="line">      records = []</div><div class="line">  <span class="keyword">if</span> records:</div><div class="line">    frames.append(pd.DataFrame(records))</div><div class="line">  <span class="keyword">return</span> pd.concat(frames) <span class="keyword">if</span> frames <span class="keyword">else</span> pd.DataFrame()</div><div class="line">  </div><div class="line"><span class="comment"># func parameter example, must be a Generator</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_result</span><span class="params">(record)</span>:</span></div><div class="line">  <span class="keyword">for</span> interaction <span class="keyword">in</span> record[<span class="string">'xxx'</span>]:</div><div class="line">  <span class="keyword">yield</span> &#123;</div><div class="line">    <span class="string">'a'</span>: record[<span class="string">'_id'</span>],</div><div class="line">    <span class="string">'b'</span>: interaction[<span class="string">'b'</span>]</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">data = iterator2dataframe(collection.find(), <span class="number">1000</span>, func=record_result)</div></pre></td></tr></table></figure></p>
-<p>In fact, pandas.DataFrame support reading a Generator(not Iterator) as input, however the memory management seems to be bad<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># not recommended</span></div><div class="line">pd.DataFrame(<span class="keyword">lambda</span> x: <span class="keyword">yield</span> x <span class="keyword">for</span> x <span class="keyword">in</span> collection.find())</div></pre></td></tr></table></figure></p>
-<p>Alternatively, if you are just dumping a collection, you could try <a href="https://odo.readthedocs.io/en/latest/mongo.html" target="_blank" rel="external">odo’s mongo</a>, haven’t really tried it yet, shall do a comparison in the future update.</p>
+        <p>最近公司业务复杂度在提升，因此需要更复杂的celery(3.1.24)任务调度与依赖。</p>
+<p>其中一项是chain of groups，需要把group任务进行chain串行调度。</p>
+<p>参照Celery的文档：</p>
+<p><a href="http://docs.celeryproject.org/en/latest/userguide/canvas.html#chains" target="_blank" rel="external">chain group with other task will be a chord</a></p>
+<p>如果直接把group放在chain里，实际上会被转化为chord, 因此group里面的每一个task，都必须满足chord的要求，参照：</p>
+<p><a href="http://docs.celeryproject.org/en/latest/userguide/canvas.html#chord-important-notes" target="_blank" rel="external">Chord should not ignore result</a></p>
+<p>其中最重要的是，task必须有返回结果（即使默认的None返回），另外一点文中没有提到的，就是CELERY_TASK_RESULT_EXPIRES必须设置得足够长，能够存活到chord task被执行之时</p>
+<p>然而在解决了上面的问题后，如果只是单纯的把group用chain连接的话，仍然会发生任务丢失或执行顺序错乱的问题，这似乎是celery的一个bug，参照：</p>
+<p><a href="http://stackoverflow.com/questions/15123772/celery-chaining-groups-and-subtasks-out-of-order-execution" target="_blank" rel="external">dummy chord finisher</a></p>
+<p>我们需要一个额外的chord finish task和把group都包装成chord, 最后总结示例代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># config.py</span></div><div class="line">CELERY_TASK_RESULT_EXPIRES = <span class="number">1000</span> <span class="comment"># long enough within a chord</span></div><div class="line">CELERY_IGNORE_RESULT = <span class="keyword">False</span> <span class="comment"># cannot ignore result</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># task.py</span></div><div class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> app</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># notice you must not use ignore_result=True </span></div><div class="line"><span class="meta">@app.task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dummy</span><span class="params">(msg)</span>:</span></div><div class="line">  <span class="comment"># do something</span></div><div class="line">  print(msg)</div><div class="line">  </div><div class="line"><span class="meta">@app.task</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">finisher</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">pass</span></div><div class="line">  </div><div class="line"><span class="comment"># main.py</span></div><div class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> chain, chord, group</div><div class="line"><span class="keyword">from</span> task <span class="keyword">import</span> dummy, finisher</div><div class="line"></div><div class="line">chain(</div><div class="line">  chord(group(dummy.si(<span class="string">'1.1'</span>), dummy.si(<span class="string">'1.2'</span>)),</div><div class="line">        finisher.si()),</div><div class="line">  chord([dummy.si(<span class="string">'2'</span>)],</div><div class="line">        finisher.si()),</div><div class="line">  chord(group(dummy.si(<span class="string">'3.1'</span>)),</div><div class="line">        finisher.si())</div><div class="line">)()</div></pre></td></tr></table></figure>
+<p>如果大家有什么更好的解决方案，欢迎联系交流</p>
 
       
     </div>
@@ -360,15 +376,9 @@ We use it to store our intermediate level of data ( which is a little bit cleane
       
         <div class="post-tags">
           
-            <a href="/tags/pandas/" rel="tag">#pandas</a>
-          
             <a href="/tags/python/" rel="tag">#python</a>
           
-            <a href="/tags/mongodb/" rel="tag">#mongodb</a>
-          
-            <a href="/tags/odo/" rel="tag">#odo</a>
-          
-            <a href="/tags/pymongo/" rel="tag">#pymongo</a>
+            <a href="/tags/celery/" rel="tag">#celery</a>
           
         </div>
       
@@ -377,17 +387,13 @@ We use it to store our intermediate level of data ( which is a little bit cleane
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/21/Adapting-Pandas-data-type-using-Psycopg2/" rel="next" title="Adapting Pandas data type using Psycopg2">
-                <i class="fa fa-chevron-left"></i> Adapting Pandas data type using Psycopg2
+              <a href="/2016/09/24/更新有赞Nodejs-SDK支持Push推送/" rel="next" title="更新有赞Nodejs SDK支持Push推送">
+                <i class="fa fa-chevron-left"></i> 更新有赞Nodejs SDK支持Push推送
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/23/Using-scikit-learn-in-Celery/" rel="prev" title="Using scikit-learn in Celery">
-                Using scikit-learn in Celery <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -402,10 +408,10 @@ We use it to store our intermediate level of data ( which is a little bit cleane
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/"
-     data-title="Load data from MongoDB to Pandas DataFrame"
+        <div class="ds-share flat" data-thread-key="2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/"
+     data-title="Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)"
      data-content=""
-     data-url="http://deo.im/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/">
+     data-url="http://deo.im/2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -432,8 +438,8 @@ We use it to store our intermediate level of data ( which is a little bit cleane
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/"
-           data-title="Load data from MongoDB to Pandas DataFrame" data-url="http://deo.im/2016/09/22/Load-data-from-mongodb-to-Pandas-DataFrame/">
+      <div class="ds-thread" data-thread-key="2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/"
+           data-title="Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)" data-url="http://deo.im/2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/">
       </div>
     
   </div>
