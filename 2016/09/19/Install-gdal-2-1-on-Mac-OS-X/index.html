@@ -95,7 +95,7 @@ will install the 1.3 version for you, if you need to newest 2.1+ versio">
 On Mac OS X, To install it, simply type:1brew install gdal
 will install the 1.3 version for you, if you need to newest 2.1+ versio">
 <meta property="og:image" content="http://deo.im/uploads/wechat_subscription.jpg">
-<meta property="og:updated_time" content="2016-09-19T00:00:22.000Z">
+<meta property="og:updated_time" content="2017-03-16T07:48:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Install gdal 2.1 on Mac OS X">
 <meta name="twitter:description" content="GDAL is a great library of your need if you’re working with GEO data.
@@ -314,6 +314,10 @@ will install the 1.3 version for you, if you need to newest 2.1+ versio">
 <p>On Mac OS X, To install it, simply type:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install gdal</div></pre></td></tr></table></figure></p>
 <p>will install the 1.3 version for you, if you need to newest 2.1+ version, try the following:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install https://raw.githubusercontent.com/OSGeo/homebrew-osgeo4mac/master/Formula/gdal-20.rb</div></pre></td></tr></table></figure></p>
 <p>For more details or when it doesn’t work, have a look at their <a href="https://github.com/OSGeo/homebrew-osgeo4mac" target="_blank" rel="external">Github</a><br>Also if you need the python bindings afterward, try:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/opt/gdal-20/bin</div><div class="line"><span class="built_in">export</span> LDFLAGS=-L/usr/<span class="built_in">local</span>/opt/gdal-20/lib</div><div class="line"><span class="built_in">export</span> CPPFLAGS=-I/usr/<span class="built_in">local</span>/opt/gdal-20/include</div><div class="line">pip install gdal</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>2017-03-16 update</strong></p>
+<p>If you have GDAL 1.x installed, could try:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew unlink gdal</div><div class="line">brew tap osgeo/osgeo4mac &amp;&amp; brew tap --repair</div><div class="line">brew install gdal2 --with-armadillo --with-complete --with-libkml --with-unsupported</div><div class="line">brew link --force gdal2</div></pre></td></tr></table></figure></p>
+<p>also if you encounter some file missing problem when using python GDAL binding, try installing a proper python binding version<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install GDAL==$(gdal-config --version | awk -F<span class="string">'[.]'</span> <span class="string">'&#123;print $1"."$2&#125;'</span>)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -553,8 +557,8 @@ will install the 1.3 version for you, if you need to newest 2.1+ versio">
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
