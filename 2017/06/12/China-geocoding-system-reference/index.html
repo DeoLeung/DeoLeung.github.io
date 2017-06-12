@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,virtualenvwrapper,systemd," />
+  <meta name="keywords" content="gdal," />
 
 
 
@@ -84,20 +84,26 @@
 
 
 
-<meta name="description" content="经常使用python的朋友应该对虚拟环境virtual environment并不陌生，以virtualenvwrapper 为例，它能很好的管理我们python的版本已经对应的包版本的分割管理。
-假设我们新建了一个基于python3的test的虚拟环境（请参照上面的链接搭建相关的环境）：1234mkvirtualenv -p python3 testworkon testwhich python">
+<meta name="description" content="When building a geo system in China, we have a bit fundermental stuff to keep in mind
+
+Highly recommend using PostgreSQL + Postgis as your database backend
+All geometry should have a unique srid in da">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Use python virtual environment in systemd">
-<meta property="og:url" content="http://deo.im/2016/10/17/Use-python-virtual-environment-in-systemd/index.html">
+<meta property="og:title" content="China geocoding system reference">
+<meta property="og:url" content="http://deo.im/2017/06/12/China-geocoding-system-reference/index.html">
 <meta property="og:site_name" content="Deo">
-<meta property="og:description" content="经常使用python的朋友应该对虚拟环境virtual environment并不陌生，以virtualenvwrapper 为例，它能很好的管理我们python的版本已经对应的包版本的分割管理。
-假设我们新建了一个基于python3的test的虚拟环境（请参照上面的链接搭建相关的环境）：1234mkvirtualenv -p python3 testworkon testwhich python">
+<meta property="og:description" content="When building a geo system in China, we have a bit fundermental stuff to keep in mind
+
+Highly recommend using PostgreSQL + Postgis as your database backend
+All geometry should have a unique srid in da">
 <meta property="og:image" content="http://deo.im/uploads/wechat_subscription.jpg">
-<meta property="og:updated_time" content="2016-10-19T05:39:47.000Z">
+<meta property="og:updated_time" content="2017-06-12T03:43:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Use python virtual environment in systemd">
-<meta name="twitter:description" content="经常使用python的朋友应该对虚拟环境virtual environment并不陌生，以virtualenvwrapper 为例，它能很好的管理我们python的版本已经对应的包版本的分割管理。
-假设我们新建了一个基于python3的test的虚拟环境（请参照上面的链接搭建相关的环境）：1234mkvirtualenv -p python3 testworkon testwhich python">
+<meta name="twitter:title" content="China geocoding system reference">
+<meta name="twitter:description" content="When building a geo system in China, we have a bit fundermental stuff to keep in mind
+
+Highly recommend using PostgreSQL + Postgis as your database backend
+All geometry should have a unique srid in da">
 <meta name="twitter:image" content="http://deo.im/uploads/wechat_subscription.jpg">
 
 
@@ -119,9 +125,9 @@
 
 
 
-  <link rel="canonical" href="http://deo.im/2016/10/17/Use-python-virtual-environment-in-systemd/"/>
+  <link rel="canonical" href="http://deo.im/2017/06/12/China-geocoding-system-reference/"/>
 
-  <title> Use python virtual environment in systemd | Deo </title>
+  <title> China geocoding system reference | Deo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -251,7 +257,7 @@
             
             
               
-                Use python virtual environment in systemd
+                China geocoding system reference
               
             
           </h1>
@@ -263,8 +269,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-17T13:36:00+08:00" content="2016-10-17">
-              2016-10-17
+            <time itemprop="dateCreated" datetime="2017-06-12T11:14:00+08:00" content="2017-06-12">
+              2017-06-12
             </time>
           </span>
 
@@ -274,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/17/Use-python-virtual-environment-in-systemd/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/17/Use-python-virtual-environment-in-systemd/" itemprop="commentsCount"></span>
+                <a href="/2017/06/12/China-geocoding-system-reference/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/12/China-geocoding-system-reference/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,7 +291,7 @@
 
           
           
-             <span id="/2016/10/17/Use-python-virtual-environment-in-systemd/" class="leancloud_visitors" data-flag-title="Use python virtual environment in systemd">
+             <span id="/2017/06/12/China-geocoding-system-reference/" class="leancloud_visitors" data-flag-title="China geocoding system reference">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -307,19 +313,20 @@
       
 
       
-        <p>经常使用python的朋友应该对虚拟环境virtual environment并不陌生，以<a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">virtualenvwrapper</a> 为例，它能很好的管理我们python的版本已经对应的包版本的分割管理。</p>
-<p>假设我们新建了一个基于python3的test的虚拟环境（请参照上面的链接搭建相关的环境）：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkvirtualenv -p python3 <span class="built_in">test</span></div><div class="line">workon <span class="built_in">test</span></div><div class="line"><span class="built_in">which</span> python</div><div class="line"><span class="comment"># $&#123;HOME&#125;/.virtualenvs/test/bin/python</span></div></pre></td></tr></table></figure></p>
-<p>所以如果直接在terminal使用的话，可以先进入虚拟环境：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># method 1</span></div><div class="line">python your_script.py</div></pre></td></tr></table></figure></p>
-<p>或者直接调用对应的bin:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># method 2</span></div><div class="line"><span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin/python your_script.py</div></pre></td></tr></table></figure></p>
-<p>但是如果your_script.py里面再调用python的bin，method 2就没有办法把虚拟环境的bin指向过去，因此，如果不想进入虚拟环境，而直接使用对应的bin文件的话，我们可以通过修改PATH指向让系统首先搜索到虚拟环境的bin<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PATH=<span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
-<p>基于以上原理，我们可以通过结合method2和设置Environment参数在systemd里面启用对应的python虚拟环境，参考配置some.service:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># some.service</span></div><div class="line">[Unit]</div><div class="line">Description=<span class="built_in">test</span></div><div class="line">After=auditd.service systemd-user-sessions.service time-sync.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">Environment=PATH=<span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin/:<span class="variable">$PATH</span></div><div class="line">ExecStart=<span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin/python your_script.py</div><div class="line">ExecReload=/bin/<span class="built_in">kill</span> <span class="variable">$MAINPID</span></div><div class="line">KillMode=process</div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>2016/10/19 update</strong></p>
-<p>如果通过上面启动的服务需要调用subprocess的话，可能会发生找不到相关PATH下的binary, 这里提供另外一个解决思路：</p>
-<p>首先建立一个shell script<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/sh</span></div><div class="line"><span class="built_in">source</span> <span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin/activate</div><div class="line">python your_script.py</div></pre></td></tr></table></figure></p>
-<p>然后修改service指向到该script<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># some.service</span></div><div class="line">[Unit]</div><div class="line">Description=<span class="built_in">test</span></div><div class="line">After=auditd.service systemd-user-sessions.service time-sync.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">ExecStart=<span class="variable">$&#123;absolute_path_to_shell_script&#125;</span></div><div class="line">ExecReload=/bin/<span class="built_in">kill</span> <span class="variable">$MAINPID</span></div><div class="line">KillMode=process</div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure></p>
-<p>然后正常重启service就可以</p>
-<p><strong><em>注</em></strong>: 以上可根据需要替换${HOME}</p>
+        <p>When building a geo system in China, we have a bit fundermental stuff to keep in mind</p>
+<ol>
+<li>Highly recommend using PostgreSQL + Postgis as your database backend</li>
+<li>All geometry should have a unique srid in database, recommend using <code>srid: 4326</code></li>
+<li>When calculating area of geometry in China, <code>srid: 3857</code> seems not very accurate:<ul>
+<li>Use China <a href="http://epsg.io/4490" target="_blank" rel="external">China Geodetic Coordinate System 2000</a>, 4490</li>
+<li>Depends on your target sub-area, use Transverse Mercator, i.e. <a href="http://epsg.io/4549" target="_blank" rel="external">Shanghai</a>, 4549</li>
+</ul>
+</li>
+</ol>
+<h6 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h6><ul>
+<li><a href="http://epsg.io/" target="_blank" rel="external">epsg.io</a></li>
+<li><a href="https://sis.apache.org/tables/CoordinateReferenceSystems.html" target="_blank" rel="external">CoordinateReferenceSystems</a></li>
+</ul>
 
       
     </div>
@@ -368,11 +375,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
-          
-            <a href="/tags/virtualenvwrapper/" rel="tag">#virtualenvwrapper</a>
-          
-            <a href="/tags/systemd/" rel="tag">#systemd</a>
+            <a href="/tags/gdal/" rel="tag">#gdal</a>
           
         </div>
       
@@ -381,17 +384,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/" rel="next" title="Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)">
-                <i class="fa fa-chevron-left"></i> Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)
+              <a href="/2016/10/17/Use-python-virtual-environment-in-systemd/" rel="next" title="Use python virtual environment in systemd">
+                <i class="fa fa-chevron-left"></i> Use python virtual environment in systemd
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/12/China-geocoding-system-reference/" rel="prev" title="China geocoding system reference">
-                China geocoding system reference <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -406,10 +405,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/17/Use-python-virtual-environment-in-systemd/"
-     data-title="Use python virtual environment in systemd"
+        <div class="ds-share flat" data-thread-key="2017/06/12/China-geocoding-system-reference/"
+     data-title="China geocoding system reference"
      data-content=""
-     data-url="http://deo.im/2016/10/17/Use-python-virtual-environment-in-systemd/">
+     data-url="http://deo.im/2017/06/12/China-geocoding-system-reference/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -436,8 +435,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/17/Use-python-virtual-environment-in-systemd/"
-           data-title="Use python virtual environment in systemd" data-url="http://deo.im/2016/10/17/Use-python-virtual-environment-in-systemd/">
+      <div class="ds-thread" data-thread-key="2017/06/12/China-geocoding-system-reference/"
+           data-title="China geocoding system reference" data-url="http://deo.im/2017/06/12/China-geocoding-system-reference/">
       </div>
     
   </div>
@@ -541,7 +540,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
           </div>
         </section>

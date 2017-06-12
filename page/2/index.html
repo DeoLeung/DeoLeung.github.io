@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,virtualenvwrapper,systemd," />
+  <meta name="keywords" content="deo, Hexo, NexT" />
 
 
 
@@ -84,20 +84,16 @@
 
 
 
-<meta name="description" content="经常使用python的朋友应该对虚拟环境virtual environment并不陌生，以virtualenvwrapper 为例，它能很好的管理我们python的版本已经对应的包版本的分割管理。
-假设我们新建了一个基于python3的test的虚拟环境（请参照上面的链接搭建相关的环境）：1234mkvirtualenv -p python3 testworkon testwhich python">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Use python virtual environment in systemd">
-<meta property="og:url" content="http://deo.im/2016/10/17/Use-python-virtual-environment-in-systemd/index.html">
+<meta name="description" content="专业救火，专职刷脸，价格公道，值得拥有">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Deo">
+<meta property="og:url" content="http://deo.im/page/2/index.html">
 <meta property="og:site_name" content="Deo">
-<meta property="og:description" content="经常使用python的朋友应该对虚拟环境virtual environment并不陌生，以virtualenvwrapper 为例，它能很好的管理我们python的版本已经对应的包版本的分割管理。
-假设我们新建了一个基于python3的test的虚拟环境（请参照上面的链接搭建相关的环境）：1234mkvirtualenv -p python3 testworkon testwhich python">
+<meta property="og:description" content="专业救火，专职刷脸，价格公道，值得拥有">
 <meta property="og:image" content="http://deo.im/uploads/wechat_subscription.jpg">
-<meta property="og:updated_time" content="2016-10-19T05:39:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Use python virtual environment in systemd">
-<meta name="twitter:description" content="经常使用python的朋友应该对虚拟环境virtual environment并不陌生，以virtualenvwrapper 为例，它能很好的管理我们python的版本已经对应的包版本的分割管理。
-假设我们新建了一个基于python3的test的虚拟环境（请参照上面的链接搭建相关的环境）：1234mkvirtualenv -p python3 testworkon testwhich python">
+<meta name="twitter:title" content="Deo">
+<meta name="twitter:description" content="专业救火，专职刷脸，价格公道，值得拥有">
 <meta name="twitter:image" content="http://deo.im/uploads/wechat_subscription.jpg">
 
 
@@ -119,9 +115,9 @@
 
 
 
-  <link rel="canonical" href="http://deo.im/2016/10/17/Use-python-virtual-environment-in-systemd/"/>
+  <link rel="canonical" href="http://deo.im/page/2/"/>
 
-  <title> Use python virtual environment in systemd | Deo </title>
+  <title> Deo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -152,7 +148,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -229,9 +227,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
   
@@ -251,7 +249,10 @@
             
             
               
-                Use python virtual environment in systemd
+                
+                <a class="post-title-link" href="/2016/09/16/some-open-source-projects/" itemprop="url">
+                  some open source projects
+                </a>
               
             
           </h1>
@@ -263,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-17T13:36:00+08:00" content="2016-10-17">
-              2016-10-17
+            <time itemprop="dateCreated" datetime="2016-09-16T16:55:00+08:00" content="2016-09-16">
+              2016-09-16
             </time>
           </span>
 
@@ -274,8 +275,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/17/Use-python-virtual-environment-in-systemd/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/17/Use-python-virtual-environment-in-systemd/" itemprop="commentsCount"></span>
+                <a href="/2016/09/16/some-open-source-projects/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/16/some-open-source-projects/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,7 +286,7 @@
 
           
           
-             <span id="/2016/10/17/Use-python-virtual-environment-in-systemd/" class="leancloud_visitors" data-flag-title="Use python virtual environment in systemd">
+             <span id="/2016/09/16/some-open-source-projects/" class="leancloud_visitors" data-flag-title="some open source projects">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -307,126 +308,55 @@
       
 
       
-        <p>经常使用python的朋友应该对虚拟环境virtual environment并不陌生，以<a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="external">virtualenvwrapper</a> 为例，它能很好的管理我们python的版本已经对应的包版本的分割管理。</p>
-<p>假设我们新建了一个基于python3的test的虚拟环境（请参照上面的链接搭建相关的环境）：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkvirtualenv -p python3 <span class="built_in">test</span></div><div class="line">workon <span class="built_in">test</span></div><div class="line"><span class="built_in">which</span> python</div><div class="line"><span class="comment"># $&#123;HOME&#125;/.virtualenvs/test/bin/python</span></div></pre></td></tr></table></figure></p>
-<p>所以如果直接在terminal使用的话，可以先进入虚拟环境：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># method 1</span></div><div class="line">python your_script.py</div></pre></td></tr></table></figure></p>
-<p>或者直接调用对应的bin:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># method 2</span></div><div class="line"><span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin/python your_script.py</div></pre></td></tr></table></figure></p>
-<p>但是如果your_script.py里面再调用python的bin，method 2就没有办法把虚拟环境的bin指向过去，因此，如果不想进入虚拟环境，而直接使用对应的bin文件的话，我们可以通过修改PATH指向让系统首先搜索到虚拟环境的bin<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PATH=<span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
-<p>基于以上原理，我们可以通过结合method2和设置Environment参数在systemd里面启用对应的python虚拟环境，参考配置some.service:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># some.service</span></div><div class="line">[Unit]</div><div class="line">Description=<span class="built_in">test</span></div><div class="line">After=auditd.service systemd-user-sessions.service time-sync.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">Environment=PATH=<span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin/:<span class="variable">$PATH</span></div><div class="line">ExecStart=<span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin/python your_script.py</div><div class="line">ExecReload=/bin/<span class="built_in">kill</span> <span class="variable">$MAINPID</span></div><div class="line">KillMode=process</div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>2016/10/19 update</strong></p>
-<p>如果通过上面启动的服务需要调用subprocess的话，可能会发生找不到相关PATH下的binary, 这里提供另外一个解决思路：</p>
-<p>首先建立一个shell script<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/sh</span></div><div class="line"><span class="built_in">source</span> <span class="variable">$&#123;HOME&#125;</span>/.virtualenvs/<span class="built_in">test</span>/bin/activate</div><div class="line">python your_script.py</div></pre></td></tr></table></figure></p>
-<p>然后修改service指向到该script<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># some.service</span></div><div class="line">[Unit]</div><div class="line">Description=<span class="built_in">test</span></div><div class="line">After=auditd.service systemd-user-sessions.service time-sync.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">ExecStart=<span class="variable">$&#123;absolute_path_to_shell_script&#125;</span></div><div class="line">ExecReload=/bin/<span class="built_in">kill</span> <span class="variable">$MAINPID</span></div><div class="line">KillMode=process</div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure></p>
-<p>然后正常重启service就可以</p>
-<p><strong><em>注</em></strong>: 以上可根据需要替换${HOME}</p>
+        
+          
+            <h1 id="一些开源的小项目"><a href="#一些开源的小项目" class="headerlink" title="一些开源的小项目"></a>一些开源的小项目</h1><p>下列是我在幸福西饼工作期间不涉及业务层面的代码（我作为main author)，分享给大家,鉴于已经离开，所有没业务需求的话，应该很少更新了。</p>
+<ul>
+<li><img src="https://img.shields.io/npm/dt/pingpp-verifier.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/pingpp-verifier.svg" class="inline-image"> <a href="https://github.com/MadHouses/pingpp-verifier" target="_blank" rel="external">Ping++ webhook 签名插件（Nodejs）</a></li>
+<li><img src="https://img.shields.io/npm/dt/deo-youzan.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/deo-youzan.svg" class="inline-image"> <a href="https://github.com/MadHouses/youzan" target="_blank" rel="external">有赞API SDK（Nodejs）</a></li>
+<li><img src="https://img.shields.io/npm/dt/baidu_map.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/baidu_map.svg" class="inline-image"> <a href="https://github.com/MadHouses/baidu_map" target="_blank" rel="external">百度地图API SDK（Nodejs）</a></li>
+</ul>
+<p>还有团队的一些开源贡献</p>
+<ul>
+<li><img src="https://img.shields.io/npm/dt/taobao-openapi.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/taobao-openapi.svg" class="inline-image"> <a href="https://github.com/MadHouses/taobao-openapi" target="_blank" rel="external">淘宝API SDK（Nodejs）</a></li>
+<li><img src="https://img.shields.io/npm/dt/meituan.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/meituan.svg" class="inline-image"> <a href="https://github.com/MadHouses/meituan" target="_blank" rel="external">美团外卖 SDK（Nodejs）</a></li>
+<li><img src="https://img.shields.io/npm/dt/mysql-express-session.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/mysql-express-session.svg" class="inline-image"> <a href="https://github.com/MadHouses/mysql-express-session" target="_blank" rel="external">Express session using MySQL（Nodejs）</a></li>
+</ul>
 
+          
+        
       
     </div>
 
     <div>
       
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/wechat_subscription.jpg" alt="Zhanzhao Deo Liang wechat" style="width: 200px; max-width: 100%;"/>
-    <div>欢迎关注我的个人订阅号： deoXdeo</div>
-</div>
-
-
-      
     </div>
 
     <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>今天的午餐全赖有你支持！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/uploads/wechat_reward_image.jpeg" alt="Zhanzhao Deo Liang WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/uploads/alipay_reward_image.jpeg" alt="Zhanzhao Deo Liang Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
-  </div>
-
-
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag">#python</a>
-          
-            <a href="/tags/virtualenvwrapper/" rel="tag">#virtualenvwrapper</a>
-          
-            <a href="/tags/systemd/" rel="tag">#systemd</a>
-          
-        </div>
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/10/15/Celery-celery-exceptions-NotRegistered-和-celery-exceptions-TimeoutError-Operation-timed-out-3-0/" rel="next" title="Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)">
-                <i class="fa fa-chevron-left"></i> Celery celery.exceptions.NotRegistered 和 celery.exceptions.TimeoutError: Operation timed out (3.0)
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/12/China-geocoding-system-reference/" rel="prev" title="China geocoding system reference">
-                China geocoding system reference <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/10/17/Use-python-virtual-environment-in-systemd/"
-     data-title="Use python virtual environment in systemd"
-     data-content=""
-     data-url="http://deo.im/2016/10/17/Use-python-virtual-environment-in-systemd/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
-    </div>
-  </div>
 
 
           </div>
@@ -434,14 +364,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/10/17/Use-python-virtual-environment-in-systemd/"
-           data-title="Use python virtual environment in systemd" data-url="http://deo.im/2016/10/17/Use-python-virtual-environment-in-systemd/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -461,17 +383,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpeg"
@@ -534,17 +447,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -641,10 +543,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

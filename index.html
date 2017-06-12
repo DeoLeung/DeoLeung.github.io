@@ -250,6 +250,129 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/12/China-geocoding-system-reference/" itemprop="url">
+                  China geocoding system reference
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-06-12T11:14:00+08:00" content="2017-06-12">
+              2017-06-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/06/12/China-geocoding-system-reference/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/12/China-geocoding-system-reference/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/06/12/China-geocoding-system-reference/" class="leancloud_visitors" data-flag-title="China geocoding system reference">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>When building a geo system in China, we have a bit fundermental stuff to keep in mind</p>
+<ol>
+<li>Highly recommend using PostgreSQL + Postgis as your database backend</li>
+<li>All geometry should have a unique srid in database, recommend using <code>srid: 4326</code></li>
+<li>When calculating area of geometry in China, <code>srid: 3857</code> seems not very accurate:<ul>
+<li>Use China <a href="http://epsg.io/4490" target="_blank" rel="external">China Geodetic Coordinate System 2000</a>, 4490</li>
+<li>Depends on your target sub-area, use Transverse Mercator, i.e. <a href="http://epsg.io/4549" target="_blank" rel="external">Shanghai</a>, 4549</li>
+</ul>
+</li>
+</ol>
+<h6 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h6><ul>
+<li><a href="http://epsg.io/" target="_blank" rel="external">epsg.io</a></li>
+<li><a href="https://sis.apache.org/tables/CoordinateReferenceSystems.html" target="_blank" rel="external">CoordinateReferenceSystems</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/17/Use-python-virtual-environment-in-systemd/" itemprop="url">
                   Use python virtual environment in systemd
                 </a>
@@ -1294,130 +1417,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/16/some-open-source-projects/" itemprop="url">
-                  some open source projects
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-16T16:55:00+08:00" content="2016-09-16">
-              2016-09-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/16/some-open-source-projects/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/16/some-open-source-projects/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/16/some-open-source-projects/" class="leancloud_visitors" data-flag-title="some open source projects">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一些开源的小项目"><a href="#一些开源的小项目" class="headerlink" title="一些开源的小项目"></a>一些开源的小项目</h1><p>下列是我在幸福西饼工作期间不涉及业务层面的代码（我作为main author)，分享给大家,鉴于已经离开，所有没业务需求的话，应该很少更新了。</p>
-<ul>
-<li><img src="https://img.shields.io/npm/dt/pingpp-verifier.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/pingpp-verifier.svg" class="inline-image"> <a href="https://github.com/MadHouses/pingpp-verifier" target="_blank" rel="external">Ping++ webhook 签名插件（Nodejs）</a></li>
-<li><img src="https://img.shields.io/npm/dt/deo-youzan.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/deo-youzan.svg" class="inline-image"> <a href="https://github.com/MadHouses/youzan" target="_blank" rel="external">有赞API SDK（Nodejs）</a></li>
-<li><img src="https://img.shields.io/npm/dt/baidu_map.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/baidu_map.svg" class="inline-image"> <a href="https://github.com/MadHouses/baidu_map" target="_blank" rel="external">百度地图API SDK（Nodejs）</a></li>
-</ul>
-<p>还有团队的一些开源贡献</p>
-<ul>
-<li><img src="https://img.shields.io/npm/dt/taobao-openapi.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/taobao-openapi.svg" class="inline-image"> <a href="https://github.com/MadHouses/taobao-openapi" target="_blank" rel="external">淘宝API SDK（Nodejs）</a></li>
-<li><img src="https://img.shields.io/npm/dt/meituan.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/meituan.svg" class="inline-image"> <a href="https://github.com/MadHouses/meituan" target="_blank" rel="external">美团外卖 SDK（Nodejs）</a></li>
-<li><img src="https://img.shields.io/npm/dt/mysql-express-session.svg" class="inline-image"> <img src="https://img.shields.io/npm/v/mysql-express-session.svg" class="inline-image"> <a href="https://github.com/MadHouses/mysql-express-session" target="_blank" rel="external">Express session using MySQL（Nodejs）</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1456,7 +1462,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
