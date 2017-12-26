@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="deo, Hexo, NexT" />
+  <meta name="keywords" content="python,numpy," />
 
 
 
@@ -84,16 +84,26 @@
 
 
 
-<meta name="description" content="专业救火，专职刷脸，价格公道，值得拥有">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Deo">
-<meta property="og:url" content="http://deo.im/archives/2017/06/index.html">
+<meta name="description" content="If you are working on some data system to deal with DAU or something similar, 
+one convenient data structure is the bitmap
+for more detail about what bitmap is, you could have a look at here
+following">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Use Numpy to generate/restore bitmaps">
+<meta property="og:url" content="http://deo.im/2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/index.html">
 <meta property="og:site_name" content="Deo">
-<meta property="og:description" content="专业救火，专职刷脸，价格公道，值得拥有">
+<meta property="og:description" content="If you are working on some data system to deal with DAU or something similar, 
+one convenient data structure is the bitmap
+for more detail about what bitmap is, you could have a look at here
+following">
 <meta property="og:image" content="http://deo.im/uploads/wechat_subscription.jpg">
+<meta property="og:updated_time" content="2017-12-26T06:23:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deo">
-<meta name="twitter:description" content="专业救火，专职刷脸，价格公道，值得拥有">
+<meta name="twitter:title" content="Use Numpy to generate/restore bitmaps">
+<meta name="twitter:description" content="If you are working on some data system to deal with DAU or something similar, 
+one convenient data structure is the bitmap
+for more detail about what bitmap is, you could have a look at here
+following">
 <meta name="twitter:image" content="http://deo.im/uploads/wechat_subscription.jpg">
 
 
@@ -115,9 +125,9 @@
 
 
 
-  <link rel="canonical" href="http://deo.im/archives/2017/06/"/>
+  <link rel="canonical" href="http://deo.im/2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/"/>
 
-  <title> Archive | Deo </title>
+  <title> Use Numpy to generate/restore bitmaps | Deo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -148,7 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -226,66 +236,188 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 13 posts in total. Keep on posting.
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Use Numpy to generate/restore bitmaps
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-12-26T13:39:00+08:00" content="2017-12-26">
+              2017-12-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/" class="leancloud_visitors" data-flag-title="Use Numpy to generate/restore bitmaps">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>If you are working on some data system to deal with DAU or something similar, </p>
+<p>one convenient data structure is the bitmap</p>
+<p>for more detail about what bitmap is, you could have a look at <a href="https://scalegrid.io/blog/introduction-to-redis-data-structure-bitmaps/" target="_blank" rel="external">here</a></p>
+<p>following is the snippet of transforming list of ids into bitmaps and back <a href="https://gist.github.com/DeoLeung/2fc00b95eaef6f01bab351e496215f31" target="_blank" rel="external">gist</a>:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">ids = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">12</span>]</div><div class="line">bitmaps = np.zeros(max(ids) + <span class="number">1</span>, dtype=np.bool)</div><div class="line">bitmaps[ids] = <span class="keyword">True</span></div><div class="line">bitmaps = np.packbits(bitmaps).tostring()</div><div class="line">print(bitmaps)</div><div class="line"><span class="comment"># b'E\x08'</span></div><div class="line"><span class="comment"># could be use as a binary field to be stored in database</span></div><div class="line"></div><div class="line">origin_ids = np.where(</div><div class="line">    np.unpackbits(</div><div class="line">        np.frombuffer(bitmaps,</div><div class="line">                      dtype=np.uint8)))[<span class="number">0</span>].tolist()</div><div class="line">print(origin_ids)</div><div class="line"><span class="comment"># [1, 5, 7, 12]</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat_subscription.jpg" alt="Zhanzhao Deo Liang wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎关注我的个人订阅号： deoXdeo</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>今天的午餐全赖有你支持！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat_reward_image.jpeg" alt="Zhanzhao Deo Liang WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay_reward_image.jpeg" alt="Zhanzhao Deo Liang Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+            <a href="/tags/numpy/" rel="tag">#numpy</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/12/China-geocoding-system-reference/" itemprop="url">
-              
-                <span itemprop="name">China geocoding system reference</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/22/长期招聘/" rel="next" title="长期招聘">
+                <i class="fa fa-chevron-left"></i> 长期招聘
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-12T11:14:00+08:00"
-              content="2017-06-12" >
-          06-12
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/"
+     data-title="Use Numpy to generate/restore bitmaps"
+     data-content=""
+     data-url="http://deo.im/2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  </section>
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-  
-
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -293,6 +425,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/"
+           data-title="Use Numpy to generate/restore bitmaps" data-url="http://deo.im/2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -312,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpeg"
@@ -376,6 +525,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -472,11 +632,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   

@@ -250,6 +250,119 @@
             
               
                 
+                <a class="post-title-link" href="/2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/" itemprop="url">
+                  Use Numpy to generate/restore bitmaps
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-12-26T13:39:00+08:00" content="2017-12-26">
+              2017-12-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/12/26/Use-Numpy-to-store-retrieve-bitmap-with-mysql/" class="leancloud_visitors" data-flag-title="Use Numpy to generate/restore bitmaps">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>If you are working on some data system to deal with DAU or something similar, </p>
+<p>one convenient data structure is the bitmap</p>
+<p>for more detail about what bitmap is, you could have a look at <a href="https://scalegrid.io/blog/introduction-to-redis-data-structure-bitmaps/" target="_blank" rel="external">here</a></p>
+<p>following is the snippet of transforming list of ids into bitmaps and back <a href="https://gist.github.com/DeoLeung/2fc00b95eaef6f01bab351e496215f31" target="_blank" rel="external">gist</a>:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">ids = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">12</span>]</div><div class="line">bitmaps = np.zeros(max(ids) + <span class="number">1</span>, dtype=np.bool)</div><div class="line">bitmaps[ids] = <span class="keyword">True</span></div><div class="line">bitmaps = np.packbits(bitmaps).tostring()</div><div class="line">print(bitmaps)</div><div class="line"><span class="comment"># b'E\x08'</span></div><div class="line"><span class="comment"># could be use as a binary field to be stored in database</span></div><div class="line"></div><div class="line">origin_ids = np.where(</div><div class="line">    np.unpackbits(</div><div class="line">        np.frombuffer(bitmaps,</div><div class="line">                      dtype=np.uint8)))[<span class="number">0</span>].tolist()</div><div class="line">print(origin_ids)</div><div class="line"><span class="comment"># [1, 5, 7, 12]</span></div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/12/22/长期招聘/" itemprop="url">
                   长期招聘
                 </a>
@@ -1339,123 +1452,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/19/Install-gdal-2-1-on-Mac-OS-X/" itemprop="url">
-                  Install gdal 2.1 on Mac OS X
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-19T07:50:00+08:00" content="2016-09-19">
-              2016-09-19
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/19/Install-gdal-2-1-on-Mac-OS-X/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/19/Install-gdal-2-1-on-Mac-OS-X/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/19/Install-gdal-2-1-on-Mac-OS-X/" class="leancloud_visitors" data-flag-title="Install gdal 2.1 on Mac OS X">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://gdal.org/" target="_blank" rel="external">GDAL</a> is a great library of your need if you’re working with GEO data.</p>
-<p>On Mac OS X, To install it, simply type:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install gdal</div></pre></td></tr></table></figure></p>
-<p>will install the 1.3 version for you, if you need to newest 2.1+ version, try the following:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install https://raw.githubusercontent.com/OSGeo/homebrew-osgeo4mac/master/Formula/gdal-20.rb</div></pre></td></tr></table></figure></p>
-<p>For more details or when it doesn’t work, have a look at their <a href="https://github.com/OSGeo/homebrew-osgeo4mac" target="_blank" rel="external">Github</a><br>Also if you need the python bindings afterward, try:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/opt/gdal-20/bin</div><div class="line"><span class="built_in">export</span> LDFLAGS=-L/usr/<span class="built_in">local</span>/opt/gdal-20/lib</div><div class="line"><span class="built_in">export</span> CPPFLAGS=-I/usr/<span class="built_in">local</span>/opt/gdal-20/include</div><div class="line">pip install gdal</div></pre></td></tr></table></figure></p>
-<hr>
-<p><strong>2017-03-16 update</strong></p>
-<p>If you have GDAL 1.x installed, could try:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew unlink gdal</div><div class="line">brew tap osgeo/osgeo4mac &amp;&amp; brew tap --repair</div><div class="line">brew install gdal2 --with-armadillo --with-complete --with-libkml --with-unsupported</div><div class="line">brew link --force gdal2</div></pre></td></tr></table></figure></p>
-<p>also if you encounter some file missing problem when using python GDAL binding, try installing a proper python binding version<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install GDAL==$(gdal-config --version | awk -F<span class="string">'[.]'</span> <span class="string">'&#123;print $1"."$2&#125;'</span>)</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1501,7 +1497,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1511,7 +1507,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
